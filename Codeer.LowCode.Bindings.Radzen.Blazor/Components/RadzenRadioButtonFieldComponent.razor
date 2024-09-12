@@ -1,0 +1,28 @@
+@using Codeer.LowCode.Blazor.Repository.Design
+@inherits RadzenFieldComponentBase<RadioButtonField, RadzenRadioButtonFieldDesign>
+
+@if (Field.ModuleLayoutType == ModuleLayoutType.List && Field.IsViewOnly) {
+  <span class="d-block py-2">
+    @Field.Value
+  </span>
+} else {
+  <RadzenRadioButtonList TValue="int?" @bind-Value:get="@IsChecked" @bind-Value:set="@OnChange">
+    <Items>
+      <RadzenRadioButtonListItem TValue="int?" Disabled="@(IsDisabled || IsViewMode)" Text="@Label" Value="1" />
+    </Items>
+  </RadzenRadioButtonList>
+}
+
+@code {
+  private bool IsDisabled => Field.IsEnabled == false;
+  private bool IsViewMode => Field.IsViewOnly;
+  private string Label => Field.Design.Text;
+
+  private int? IsChecked => Field.Value ? 1 : null;
+
+  private async void OnChange(int? value) {
+    if (value == null) return;
+    await Field.SetCheckAsync();
+  }
+
+}

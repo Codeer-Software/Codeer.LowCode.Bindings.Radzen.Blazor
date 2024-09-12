@@ -1,0 +1,11 @@
+@inherits LayoutComponentBase
+@using Codeer.LowCode.Blazor.Components.AppParts.PageFrame
+@using Sotsera.Blazor.Toaster
+@using Codeer.LowCode.Bindings.Radzen.Blazor.Installer
+
+<RadzenInstaller />
+
+<MainLayoutCore>
+  <ToastContainer />
+  @Body
+</MainLayoutCore>

@@ -1,0 +1,19 @@
+@using global::Radzen.Blazor
+@inherits RadzenFieldComponentBase<ButtonField, RadzenButtonFieldDesign>
+
+<RadzenButton Variant="RadzenDesign.RadzenVariant.ToVariant()" ButtonStyle="RadzenDesign.Color.ToButtonStyle()"
+           Disabled="@IsDisabled" Click="RaiseOnClick" Icon="@Field.Design.Icon">
+  @Label
+</RadzenButton>
+
+@code {
+  private string? Label => Field.Design.Text;
+  private bool IsDisabled => Field.IsEnabled == false || IsViewMode;
+  private bool IsViewMode => Field.IsViewOnly;
+
+  [Parameter]
+  public bool IsBlock { get; set; } = true;
+
+  private Task RaiseOnClick() => Field.InvokeOnClick();
+
+}

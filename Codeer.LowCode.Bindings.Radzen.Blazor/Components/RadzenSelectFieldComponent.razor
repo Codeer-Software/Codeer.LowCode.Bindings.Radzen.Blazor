@@ -1,0 +1,40 @@
+@using Codeer.LowCode.Blazor.Repository.Design
+@inherits RadzenFieldComponentBase<SelectField, RadzenSelectFieldDesign>
+
+@if (IsViewMode) {
+  <span class="d-block py-2">@(ViewOnlyValue)</span>
+} else {
+  <RadzenDropDown TValue="string?" @bind-Value:get="SelectedValue" @bind-Value:set="@OnChange" InputId="@WebElementId" Disabled="@IsDisabled"
+                  Data="ItemsSource" TextProperty="@nameof(Data.Text)" ValueProperty="@nameof(Data.Value)" />
+}
+
+@code {
+  private bool IsDisabled => Field.IsEnabled == false;
+  private bool IsViewMode => Field.IsViewOnly;
+  private string SelectedValue => Field.Value ?? string.Empty;
+  private List<Data> ItemsSource => GetItemsSource();
+  private string? ViewOnlyValue => Field.Services.AppInfoService.IsDesignMode ? "Select" : Field.DisplayText;
+
+  private List<Data> GetItemsSource() {
+    List<Data> emptyItems = Field.Design.EmptyCandidateType != SelectEmptyCandidateType.NotExist
+      ? [new("", "")]
+      : [];
+
+    return emptyItems.Concat(Field.DisplayTextAndValue.Select(x => new Data(x.Key, x.Value))).ToList();
+  }
+
+  private async Task OnChange(string? value) {
+    if (string.IsNullOrEmpty(value)) {
+      value = Field.Design.EmptyCandidateType == SelectEmptyCandidateType.StringEmpty ? string.Empty : null;
+    }
+
+    await Field.SetValueAsync(value);
+  }
+
+  private async Task OnFocus() {
+    await Field.OnFocusAsync();
+  }
+
+  private record Data(string Text, string Value);
+
+}

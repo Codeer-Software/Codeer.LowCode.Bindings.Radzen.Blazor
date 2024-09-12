@@ -1,0 +1,21 @@
+@inherits RadzenFieldComponentBase<IdField, RadzenIdFieldDesign>
+
+@if (IsViewMode) {
+  <span class="d-block py-2">@ViewOnlyValue</span>
+} else {
+  <RadzenTextBox @bind-Value:get="@Value" @bind-Value:set="@RaiseOnValueChanged" 
+                 Disabled="@IsDisabled" ReadOnly="IsViewMode" Placeholder="@Placeholder" />
+}
+
+@code {
+  private bool IsDisabled => Field.IsEnabled == false;
+  private bool IsViewMode => Field.IsViewOnly;
+  private string? Placeholder => Field.Design.Placeholder;
+  private string? Value => Field.Services.AppInfoService.IsDesignMode ? string.Empty : Field.Value;
+  private string? ViewOnlyValue => Field.Services.AppInfoService.IsDesignMode ? "Id" : Field.Value;
+
+  private async Task RaiseOnValueChanged(string? value) {
+    await Field.SetValueAsync(value);
+  }
+
+}

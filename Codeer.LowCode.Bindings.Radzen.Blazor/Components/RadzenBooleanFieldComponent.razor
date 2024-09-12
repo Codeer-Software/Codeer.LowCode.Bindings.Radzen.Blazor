@@ -1,0 +1,32 @@
+@using Codeer.LowCode.Blazor.Repository.Design
+@inherits RadzenFieldComponentBase<BooleanField, RadzenBooleanFieldDesign>
+
+@if (Field.ModuleLayoutType == ModuleLayoutType.List && Field.IsViewOnly) {
+  <span class="d-block py-2">
+    @ViewOnlyValue
+  </span>
+} else {
+  if (Field.Design.UIType == BooleanUIType.CheckBox) {
+    <RadzenCheckBox TValue="bool" @bind-Value:get="@IsChecked" @bind-Value:set="@OnChange" Disabled="@(IsDisabled || IsViewMode)" Name="@WebElementId"/>
+    <RadzenLabel Text="@Label" Component="@WebElementId" class="rz-ms-2"/>
+  } else if (Field.Design.UIType == BooleanUIType.Switch) {
+    <RadzenSwitch TValue="bool" @bind-Value:get="@IsChecked" @bind-Value:set="@OnChange" Disabled="@(IsDisabled || IsViewMode)" Name="@WebElementId"/>
+    <RadzenLabel Text="@Label" Component="@WebElementId" class="rz-ms-2"/>
+  } else if (Field.Design.UIType == BooleanUIType.ToggleButton) {
+    <RadzenToggleButton @bind-Value:get="@IsChecked" @bind-Value:set="@OnChange" Text="@Label" Disabled="@(IsDisabled || IsViewMode)"
+                        Variant="RadzenDesign.Variant.ToVariant()" ToggleButtonStyle="RadzenDesign.Color.ToButtonStyle()"/>
+  }
+}
+
+@code {
+  private bool IsDisabled => Field.IsEnabled == false;
+  private bool IsViewMode => Field.IsViewOnly;
+  private bool IsChecked => Field.Value == true;
+  private string Label => Field.Design.Text;
+  private object? ViewOnlyValue => Field.Services.AppInfoService.IsDesignMode ? "Boolean" : Field.Value;
+
+  private async Task OnChange(bool isChecked) {
+    await Field.SetValueAsync(isChecked);
+  }
+
+}

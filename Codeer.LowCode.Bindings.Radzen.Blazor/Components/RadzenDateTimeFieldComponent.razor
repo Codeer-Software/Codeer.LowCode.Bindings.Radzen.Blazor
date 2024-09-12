@@ -1,0 +1,31 @@
+@inherits RadzenFieldComponentBase<DateTimeField, RadzenDateTimeFieldDesign>
+
+@if (IsViewMode) {
+  <span class="d-block py-2">@GetViewOnlyValue()</span>
+} else {
+  <RadzenDatePicker TValue="DateTime?" @bind-Value:get="@GetValue()" @bind-Value:set="@RaiseOnValueChanged"
+                    Disabled="@IsDisabled" ReadOnly="IsViewMode" ShowTime="true" DateFormat="yyyy/MM/dd HH:mm" />
+}
+
+@code {
+  private bool IsDisabled => Field.IsEnabled == false;
+  private bool IsViewMode => Field.IsViewOnly;
+
+  private DateTime? GetValue()
+    => Field.Design.SaveAsUtc ? Field.Value?.ToLocalTime() : Field.Value;
+
+  private async Task RaiseOnValueChanged(DateTime? value) {
+    await Field.SetValueAsync(Field.Design.SaveAsUtc ? value?.ToUniversalTime() : value);
+  }
+
+  private string GetViewOnlyValue()
+  {
+    var value = Field.Services.AppInfoService.IsDesignMode ? new DateTime(2024, 5, 13) : Field.Value;
+    try {
+      return value?.ToString(Field.Design.Format) ?? string.Empty;
+    } catch(FormatException) {
+      return value?.ToString() ?? string.Empty;
+    }
+  }
+
+}
