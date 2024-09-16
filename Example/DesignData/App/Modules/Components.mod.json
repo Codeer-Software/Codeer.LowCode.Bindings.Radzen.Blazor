@@ -287,6 +287,20 @@
       "OnDataChanged": "",
       "Name": "RadzenLink1",
       "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenLinkFieldDesign"
+    },
+    {
+      "IsUpdateProtected": false,
+      "DisplayName": "",
+      "ShowPreview": false,
+      "StorageName": "",
+      "DbColumnFileName": "",
+      "DbColumnFileSize": "",
+      "DbColumnFileGuid": "",
+      "ObjectFit": "Contain",
+      "OnDataChanged": "",
+      "OnSearchDataChanged": "",
+      "Name": "RadzenFile",
+      "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenFileFieldDesign"
     }
   ],
   "UserWriteCondition": {
@@ -607,6 +621,24 @@
               {
                 "Layout": {
                   "FieldName": "RadzenLink1",
+                  "FontFamily": "",
+                  "Color": "",
+                  "Name": "",
+                  "IsViewOnly": false,
+                  "TypeFullName": "Codeer.LowCode.Blazor.Repository.Design.FieldLayoutDesign"
+                },
+                "Border": "None",
+                "CanResize": false
+              }
+            ]
+          },
+          {
+            "IsWrap": false,
+            "IsRowMarginRemoved": false,
+            "Columns": [
+              {
+                "Layout": {
+                  "FieldName": "RadzenFile",
                   "FontFamily": "",
                   "Color": "",
                   "Name": "",
