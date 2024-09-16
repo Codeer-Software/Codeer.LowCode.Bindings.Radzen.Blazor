@@ -1,0 +1,95 @@
+﻿@using Codeer.LowCode.Blazor.Components.Fields
+@using Codeer.LowCode.Blazor.RequestInterfaces
+@using Codeer.LowCode.Bindings.Radzen.Blazor.Fields
+@using Codeer.LowCode.Bindings.Radzen.Blazor.Models
+@using global::Radzen.Blazor
+@inherits FieldComponentBase<RadzenChartField>
+@inject Services Services
+
+@if (!string.IsNullOrEmpty(Field.Design.SearchCondition.ModuleName)) {
+  <div class="container vertical">
+    <div class="container vertical fill">
+      <RadzenChart>
+        <RadzenLegend Visible="@Field.Design.ShowLegend"/>
+        <RadzenCategoryAxis>
+          <RadzenGridLines Visible="@Field.Design.XAxisLines" />
+        </RadzenCategoryAxis>
+        <RadzenValueAxis>
+          <RadzenGridLines Visible="@Field.Design.YAxisLines" />
+        </RadzenValueAxis>
+        @foreach (var sourceSeries in Field.Series) {
+          var series = sourceSeries.AsItems(Field.XAxisLabels);
+          switch (Field.Design.ChartType) {
+            case RadzenChartType.Area:
+              <RadzenAreaSeries Smooth="@Field.Design.IsSmooth" Data="@series" CategoryProperty="@nameof(ChartItem.Label)"
+                                Title="@sourceSeries.Name" ValueProperty="@nameof(ChartItem.Value)">
+                <RadzenMarkers Visible="true" MarkerType="MarkerType.Auto"/>
+              </RadzenAreaSeries>
+              break;
+            case RadzenChartType.Bar:
+              <RadzenBarSeries Data="@series" CategoryProperty="@nameof(ChartItem.Label)"
+                               Title="@sourceSeries.Name" ValueProperty="@nameof(ChartItem.Value)">
+                <RadzenMarkers Visible="true" MarkerType="MarkerType.Auto"/>
+              </RadzenBarSeries>
+              break;
+            case RadzenChartType.Column:
+              <RadzenColumnSeries Data="@series" CategoryProperty="@nameof(ChartItem.Label)"
+                                  Title="@sourceSeries.Name" ValueProperty="@nameof(ChartItem.Value)">
+                <RadzenMarkers Visible="true" MarkerType="MarkerType.Auto"/>
+              </RadzenColumnSeries>
+              break;
+            case RadzenChartType.Donut:
+              <RadzenDonutSeries Data="@series" CategoryProperty="@nameof(ChartItem.Label)"
+                                 Title="@sourceSeries.Name" ValueProperty="@nameof(ChartItem.Value)">
+                <RadzenMarkers Visible="true" MarkerType="MarkerType.Auto"/>
+              </RadzenDonutSeries>
+              break;
+            case RadzenChartType.Line:
+              <RadzenLineSeries Smooth="@Field.Design.IsSmooth" Data="@series" CategoryProperty="@nameof(ChartItem.Label)"
+                                Title="@sourceSeries.Name" ValueProperty="@nameof(ChartItem.Value)">
+                <RadzenMarkers Visible="true" MarkerType="MarkerType.Auto"/>
+              </RadzenLineSeries>
+              break;
+            case RadzenChartType.Pie:
+              <RadzenPieSeries Data="@series" CategoryProperty="@nameof(ChartItem.Label)"
+                               Title="@sourceSeries.Name" ValueProperty="@nameof(ChartItem.Value)">
+                <RadzenMarkers Visible="true" MarkerType="MarkerType.Auto"/>
+              </RadzenPieSeries>
+              break;
+            case RadzenChartType.StackedArea:
+              <RadzenStackedAreaSeries Smooth="@Field.Design.IsSmooth" Data="@series" CategoryProperty="@nameof(ChartItem.Label)"
+                                       Title="@sourceSeries.Name" ValueProperty="@nameof(ChartItem.Value)">
+                <RadzenMarkers Visible="true" MarkerType="MarkerType.Auto"/>
+              </RadzenStackedAreaSeries>
+              break;
+            case RadzenChartType.StackedBar:
+              <RadzenStackedBarSeries Data="@series" CategoryProperty="@nameof(ChartItem.Label)"
+                                      Title="@sourceSeries.Name" ValueProperty="@nameof(ChartItem.Value)">
+                <RadzenMarkers Visible="true" MarkerType="MarkerType.Auto"/>
+              </RadzenStackedBarSeries>
+              break;
+            case RadzenChartType.StackedColumn:
+              <RadzenStackedColumnSeries Data="@series" CategoryProperty="@nameof(ChartItem.Label)"
+                                         Title="@sourceSeries.Name" ValueProperty="@nameof(ChartItem.Value)">
+                <RadzenMarkers Visible="true" MarkerType="MarkerType.Auto"/>
+              </RadzenStackedColumnSeries>
+              break;
+            default:
+              throw new ArgumentOutOfRangeException();
+          }
+        }
+      </RadzenChart>
+    </div>
+  </div>
+} else if (Services.AppInfoService.IsDesignMode) {
+  <ConfigurationRequiredBanner>
+    ModuleName is not set
+  </ConfigurationRequiredBanner>
+}
+
+@code {
+  protected override async Task OnParametersSetAsync() {
+    await base.OnParametersSetAsync();
+    Field.SetStateChangedReceiver(StateHasChanged);
+  }
+}
