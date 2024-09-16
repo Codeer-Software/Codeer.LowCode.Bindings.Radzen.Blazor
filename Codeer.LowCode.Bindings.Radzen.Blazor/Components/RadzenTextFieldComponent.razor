@@ -5,10 +5,10 @@
 } else {
   if (Field.Design.IsMultiline) {
     <RadzenTextArea @bind-Value:get="@Value" @bind-Value:set="@RaiseOnValueChanged"
-                    Disabled="@IsDisabled" ReadOnly="IsViewMode" MaxLength="@(MaxLength)" Placeholder="@Placeholder" Rows="@Rows"/>
+                    Disabled="@IsDisabled" ReadOnly="IsViewMode" MaxLength="@(MaxLength)" Placeholder="@Placeholder" Rows="@Rows" class="d-block w-100" />
   } else {
     <RadzenTextBox @bind-Value:get="@Value" @bind-Value:set="@RaiseOnValueChanged"
-                   Disabled="@IsDisabled" ReadOnly="IsViewMode" MaxLength="@(MaxLength)" Placeholder="@Placeholder"/>
+                   Disabled="@IsDisabled" ReadOnly="IsViewMode" MaxLength="@(MaxLength)" Placeholder="@Placeholder" class="d-block w-100" />
   }
 }
 

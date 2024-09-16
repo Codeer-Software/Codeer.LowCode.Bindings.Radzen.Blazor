@@ -35,8 +35,6 @@
       "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenButtonFieldDesign"
     },
     {
-      "Variant": "Filled",
-      "Color": "Primary",
       "Format": "",
       "DbColumn": "",
       "IsUpdateProtected": false,
@@ -48,8 +46,6 @@
       "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenDateFieldDesign"
     },
     {
-      "Variant": "Filled",
-      "Color": "Primary",
       "SaveAsUtc": false,
       "Format": "",
       "DbColumn": "",
@@ -62,7 +58,6 @@
       "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenDateTimeFieldDesign"
     },
     {
-      "Variant": "Filled",
       "DbColumn": "",
       "Placeholder": "",
       "IsManualInput": false,
@@ -106,7 +101,6 @@
       "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenLinkFieldDesign"
     },
     {
-      "Variant": "Filled",
       "Placeholder": "",
       "Format": "",
       "DbColumn": "",
@@ -119,7 +113,6 @@
       "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenNumberFieldDesign"
     },
     {
-      "Variant": "Filled",
       "DisplayName": "",
       "IsRequired": false,
       "OnDataChanged": "",
@@ -127,7 +120,6 @@
       "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenPasswordFieldDesign"
     },
     {
-      "Color": "Primary",
       "Text": "Radio1",
       "Value": "1",
       "GroupField": "RadioGroup",
@@ -135,7 +127,6 @@
       "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenRadioButtonFieldDesign"
     },
     {
-      "Variant": "Filled",
       "Candidates": [],
       "SearchCondition": {
         "SortFieldVariable": "",
@@ -163,7 +154,6 @@
       "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenSelectFieldDesign"
     },
     {
-      "Variant": "Filled",
       "DbColumn": "",
       "IsMultiline": false,
       "Placeholder": "",
@@ -176,7 +166,6 @@
       "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenTextFieldDesign"
     },
     {
-      "Variant": "Filled",
       "SaveAsUtc": false,
       "DbColumn": "",
       "IsUpdateProtected": false,
@@ -246,7 +235,6 @@
       "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenButtonFieldDesign"
     },
     {
-      "Color": "Primary",
       "Text": "Radio2",
       "Value": "2",
       "GroupField": "RadioGroup",
@@ -254,7 +242,6 @@
       "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenRadioButtonFieldDesign"
     },
     {
-      "Color": "Primary",
       "Text": "Radio3",
       "Value": "3",
       "GroupField": "RadioGroup",
@@ -271,6 +258,35 @@
       "OnDataChanged": "",
       "Name": "RadioGroup",
       "TypeFullName": "Codeer.LowCode.Blazor.Repository.Design.RadioGroupFieldDesign"
+    },
+    {
+      "Variant": "Filled",
+      "ButtonVariant": "Filled",
+      "ButtonColor": "Primary",
+      "SearchCondition": {
+        "SortFieldVariable": "",
+        "SortDescending": false,
+        "SelectFields": [],
+        "ModuleName": "",
+        "Condition": {
+          "IsOrMatch": false,
+          "Children": [],
+          "Name": "",
+          "TypeFullName": "Codeer.LowCode.Blazor.Repository.Match.MultiMatchCondition"
+        }
+      },
+      "ValueVariable": "",
+      "DisplayTextVariable": "",
+      "DbColumn": "",
+      "ListLayoutName": "",
+      "SearchLayoutName": "",
+      "IsUpdateProtected": false,
+      "OnSearchDataChanged": "",
+      "DisplayName": "",
+      "IsRequired": false,
+      "OnDataChanged": "",
+      "Name": "RadzenLink1",
+      "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenLinkFieldDesign"
     }
   ],
   "UserWriteCondition": {
@@ -573,6 +589,24 @@
               {
                 "Layout": {
                   "FieldName": "RadzenTime",
+                  "FontFamily": "",
+                  "Color": "",
+                  "Name": "",
+                  "IsViewOnly": false,
+                  "TypeFullName": "Codeer.LowCode.Blazor.Repository.Design.FieldLayoutDesign"
+                },
+                "Border": "None",
+                "CanResize": false
+              }
+            ]
+          },
+          {
+            "IsWrap": false,
+            "IsRowMarginRemoved": false,
+            "Columns": [
+              {
+                "Layout": {
+                  "FieldName": "RadzenLink1",
                   "FontFamily": "",
                   "Color": "",
                   "Name": "",

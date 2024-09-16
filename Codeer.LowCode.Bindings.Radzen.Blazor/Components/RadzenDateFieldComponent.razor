@@ -4,7 +4,7 @@
   <span class="d-block py-2">@GetViewOnlyValue()</span>
 } else {
   <RadzenDatePicker TValue="DateOnly?" @bind-Value:get="Field.Value" @bind-Value:set="@RaiseOnValueChanged" 
-                    Disabled="@IsDisabled" ReadOnly="IsViewMode" DateFormat="yyyy/MM/dd" />
+                    Disabled="@IsDisabled" ReadOnly="IsViewMode" DateFormat="yyyy/MM/dd" class="d-block" />
 }
 
 @code {

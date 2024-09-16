@@ -4,7 +4,7 @@
   <span class="d-block py-2">@GetViewOnlyValue()</span>
 } else {
   <RadzenNumeric TValue="decimal?" @bind-Value:get="@Field.Value" @bind-Value:set="@RaiseOnValueChanged"
-                 Disabled="@IsDisabled" ReadOnly="IsViewMode" Placeholder="@Placeholder" Max="@Max" Min="@Min"/>
+                 Disabled="@IsDisabled" ReadOnly="IsViewMode" Placeholder="@Placeholder" Max="@Max" Min="@Min" class="d-block" />
 }
 
 @code {

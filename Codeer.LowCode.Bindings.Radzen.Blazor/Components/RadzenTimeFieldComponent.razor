@@ -5,7 +5,7 @@
   <span class="d-block py-2">@GetViewOnlyValue()</span>
 } else {
   <RadzenDatePicker TValue="TimeOnly?" @bind-Value:get="@GetValue()" @bind-Value:set="@RaiseOnValueChanged"
-                    Disabled="@IsDisabled" ReadOnly="IsViewMode" ShowTime="true" TimeOnly="true" DateFormat="HH:mm"/>
+                    Disabled="@IsDisabled" ReadOnly="IsViewMode" ShowTime="true" TimeOnly="true" DateFormat="HH:mm" class="d-block" />
 }
 
 @code {

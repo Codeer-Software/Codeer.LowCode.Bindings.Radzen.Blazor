@@ -4,7 +4,7 @@
   <span class="d-block py-2">@ViewOnlyValue</span>
 } else {
   <RadzenTextBox @bind-Value:get="@Value" @bind-Value:set="@RaiseOnValueChanged" 
-                 Disabled="@IsDisabled" ReadOnly="IsViewMode" Placeholder="@Placeholder" />
+                 Disabled="@IsDisabled" ReadOnly="IsViewMode" Placeholder="@Placeholder" class="d-block w-100" />
 }
 
 @code {
