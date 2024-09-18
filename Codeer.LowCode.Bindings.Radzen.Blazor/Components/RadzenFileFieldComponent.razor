@@ -20,10 +20,12 @@
         </label>
       </RadzenButton>
       <InputFile class="form-control d-none" disabled="@IsDisabled" id="@WebElementId" OnChange="@LoadFiles"/>
-      <a href="#" @onclick="Download" @onclick:preventDefault>
-        <span>@(Field.FileName)</span>
-      </a>
-      <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Danger" Variant="Variant.Text" Click="Remove"/>
+      @if (!string.IsNullOrEmpty(Field.FileName)) {
+        <a href="#" @onclick="Download" @onclick:preventDefault>
+          <span>@(Field.FileName)</span>
+        </a>
+        <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Danger" Variant="Variant.Text" Click="Remove"/>
+      }
     </div>
   }
 

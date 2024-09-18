@@ -291,8 +291,8 @@
     {
       "IsUpdateProtected": false,
       "DisplayName": "",
-      "ShowPreview": false,
-      "StorageName": "",
+      "ShowPreview": true,
+      "StorageName": "Local",
       "DbColumnFileName": "",
       "DbColumnFileSize": "",
       "DbColumnFileGuid": "",
