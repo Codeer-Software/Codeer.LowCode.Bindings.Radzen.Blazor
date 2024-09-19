@@ -1,5 +1,6 @@
 ﻿using Codeer.LowCode.Bindings.Radzen.Blazor.Components;
 using Codeer.LowCode.Bindings.Radzen.Blazor.Enums;
+using Codeer.LowCode.Bindings.Radzen.Blazor.Search;
 using Codeer.LowCode.Blazor.Repository.Design;
 
 namespace Codeer.LowCode.Bindings.Radzen.Blazor.Designs
@@ -8,11 +9,12 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.Designs
     {
         [Designer]
         public RadzenVariant Variant { get; set; }
-        
+
         [Designer]
         public RadzenColor Color { get; set; }
 
         public RadzenBooleanFieldDesign() => TypeFullName = typeof(RadzenBooleanFieldDesign).FullName!;
         public override string GetWebComponentTypeFullName() => typeof(RadzenBooleanFieldComponent).FullName!;
+        public override string GetSearchWebComponentTypeFullName() => typeof(RadzenBooleanComponent).FullName!;
     }
 }

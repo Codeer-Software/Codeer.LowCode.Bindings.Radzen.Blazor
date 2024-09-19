@@ -1,0 +1,24 @@
+@inherits FieldComponentBase<DateTimeField>
+
+<div class="d-flex align-items-center">
+  <RadzenDatePicker TValue="DateTime?" @bind-Value:get="@MoreThanValue" @bind-Value:set="@OnMoreThanChanged"
+                    ShowTime="true" DateFormat="yyyy/MM/dd HH:mm" class="d-block" data-search-target="min"/>
+  <span>～</span>
+  <RadzenDatePicker TValue="DateTime?" @bind-Value:get="@LessThanValue" @bind-Value:set="@OnLessThanChanged"
+                    ShowTime="true" DateFormat="yyyy/MM/dd HH:mm" class="d-block" data-search-target="max"/>
+</div>
+
+@code {
+
+  private DateTime? LessThanValue => (Field.SearchMax);
+  private DateTime? MoreThanValue => Field.SearchMin;
+
+  private async Task OnLessThanChanged(DateTime? value) {
+    await Field.SetSearchMaxAsync(Field.Design.SaveAsUtc ? value?.ToUniversalTime() : value);
+  }
+
+  private async Task OnMoreThanChanged(DateTime? value) {
+    await Field.SetSearchMinAsync(Field.Design.SaveAsUtc ? value?.ToUniversalTime() : value);
+  }
+
+}

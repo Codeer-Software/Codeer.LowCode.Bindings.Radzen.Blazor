@@ -1,0 +1,30 @@
+@using Codeer.LowCode.Blazor.OperatingModel
+@inherits FieldComponentBase<NumberField>
+
+<div class="input-group">
+  <input type="number" class="form-control" @bind-value:get="MoreThanValue" @bind-value:set="OnMoreThanChanged" @bind-value:event="oninput" @ref="Element" id="@WebElementId" data-search-target ="min"/>
+  <span>～</span>
+  <input type="number" class="form-control" @bind-value:get="LessThanValue" @bind-value:set="OnLessThanChanged" @bind-value:event="oninput" data-search-target="max" />
+</div>
+
+@code {
+
+  private string? LessThanValue => Field.SearchMax?.ToString();
+  private string? MoreThanValue => Field.SearchMin?.ToString();
+
+  private decimal ParseDecimal(string? value) {
+    if (value == null) {
+      return 0;
+    }
+
+    return decimal.TryParse(value, out var x) ? x : 0;
+  }
+  
+  private async Task OnMoreThanChanged(string? value) {
+    await Field.SetSearchMinAsync(ParseDecimal(value));
+  }
+
+  private async Task OnLessThanChanged(string? value) {
+    await Field.SetSearchMaxAsync(ParseDecimal(value));
+  }
+}

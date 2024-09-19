@@ -1,0 +1,21 @@
+@using Microsoft.AspNetCore.Components.Web;
+@inherits FieldComponentBase<BooleanField>
+
+<RadzenDropDown TValue="string" @bind-Value:get="Value" @bind-Value:set="@OnChange" Id="@WebElementId">
+  <RadzenDropDownItem TValue="string" Text="" Value="" />
+  <RadzenDropDownItem TValue="string" Text="true" Value="True" />
+  <RadzenDropDownItem TValue="string" Text="false" Value="False" />
+</RadzenDropDown>
+
+@code {
+  private string? Value => Field.SearchValue?.ToString();
+
+  private bool? TryParse(string? value) {
+    if (string.IsNullOrWhiteSpace(value)) return null;
+    return bool.TryParse(value, out var result) ? result : null;
+  }
+
+  private async Task OnChange(string? value) {
+    await Field.SetSearchValueAsync(TryParse(value));
+  }
+}

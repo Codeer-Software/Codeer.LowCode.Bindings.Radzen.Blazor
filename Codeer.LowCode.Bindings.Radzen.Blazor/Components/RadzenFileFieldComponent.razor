@@ -14,9 +14,9 @@
 } else {
   if (IsViewMode == false) {
     <div>
-      <RadzenButton>
+      <RadzenButton Variant="RadzenDesign.Variant.ToVariant()" ButtonStyle="RadzenDesign.Color.ToButtonStyle()">
         <label for="@WebElementId">
-          <RadzenIcon Icon="upload" />
+          <RadzenIcon Icon="upload"/>
         </label>
       </RadzenButton>
       <InputFile class="form-control d-none" disabled="@IsDisabled" id="@WebElementId" OnChange="@LoadFiles"/>
