@@ -1,0 +1,24 @@
+@inherits FieldComponentBase<DateField>
+
+<div class="d-flex align-items-center">
+  <RadzenDatePicker TValue="DateOnly?" @bind-Value:get="MoreThanValue" @bind-Value:set="@OnMoreThanChanged"
+                    DateFormat="yyyy/MM/dd" class="d-block" data-search-target="min"/>
+  <span>～</span>
+  <RadzenDatePicker TValue="DateOnly?" @bind-Value:get="LessThanValue" @bind-Value:set="@OnLessThanChanged"
+                    DateFormat="yyyy/MM/dd" class="d-block" data-search-target="max"/>
+</div>
+
+@code {
+
+  private DateOnly? LessThanValue => Field.SearchMax;
+  private DateOnly? MoreThanValue => (Field.SearchMin);
+
+  private async Task OnLessThanChanged(DateOnly? value) {
+    await Field.SetSearchMaxAsync(value);
+  }
+  
+  private async Task OnMoreThanChanged(DateOnly? value) {
+    await Field.SetSearchMinAsync(value);
+  }
+
+}

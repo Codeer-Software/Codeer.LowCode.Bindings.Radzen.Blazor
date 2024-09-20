@@ -1,0 +1,47 @@
+@using Codeer.LowCode.Blazor.RequestInterfaces
+@inherits FieldComponentBase<SelectField>
+@inject Services Services
+
+<div class="root">
+  <div class="input-group">
+    @if (Field.Design.AllowOrSearch) {
+      <RadzenDropDown TValue="IEnumerable<string>" @bind-Value:get="@SelectedValues" @bind-Value:set="@OnChangeItems" 
+                      Data="@ItemsSource" AllowClear="true" Multiple="true"/>
+    } else {
+      <RadzenDropDown TValue="string" @bind-Value:get="@SelectedValue" @bind-Value:set="@OnChange" 
+                      Data="@ItemsSource" AllowClear="true"/>
+    }
+  </div>
+  <div>
+    <RadzenCheckBox TValue="bool" @bind-Value:get="@Field.IsInverted" @bind-Value:set="@OnChangeFlag" Name="@WebElementId"/>
+    <RadzenLabel Text="Not" Component="@WebElementId" />
+  </div>
+</div>
+
+@code {
+  private string SelectedValue => Field.SearchValue ?? string.Empty;
+  private IEnumerable<string> SelectedValues => Field.SearchValues.Where(s => s is not null).ToList()!;
+  private Dictionary<string, string> ItemsSource => GetItemsSource();
+
+  private Dictionary<string, string> GetItemsSource() {
+    if (Services.AppInfoService.IsDesignMode) {
+      return new() { { "Item1", "Value1" }, { "Item2", "Value2" } };
+    }
+
+    return Field.DisplayTextAndValue;
+  }
+
+  private async Task OnChange(string? value) {
+    if (string.IsNullOrEmpty(value)) value = null;
+    await Field.SetSearchValueAsync(value);
+  }
+
+  private async Task OnChangeItems(IEnumerable<string> obj) {
+    await Field.SetSearchValuesAsync(obj);
+  }
+
+  private async Task OnChangeFlag(bool isChecked) {
+    await Field.SetNotFlag(isChecked);
+  }
+
+}

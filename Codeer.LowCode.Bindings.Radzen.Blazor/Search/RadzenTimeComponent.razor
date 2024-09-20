@@ -1,0 +1,24 @@
+@using Codeer.LowCode.Bindings.Radzen.Blazor.Internal
+@inherits FieldComponentBase<TimeField>
+
+<div class="d-flex align-items-center">
+  <RadzenDatePicker TValue="TimeOnly?" @bind-Value:get="@MoreThanValue" @bind-Value:set="@OnMoreThanChanged"
+                    ShowTime="true" TimeOnly="true" DateFormat="HH:mm" class="d-block" data-search-target="min" />
+  <span>～</span>
+  <RadzenDatePicker TValue="TimeOnly?" @bind-Value:get="@LessThanValue" @bind-Value:set="@OnLessThanChanged"
+                    ShowTime="true" TimeOnly="true" DateFormat="HH:mm" class="d-block" data-search-target="max" />
+</div>
+
+@code {
+
+  private TimeOnly? LessThanValue => Field.SearchMax;
+  private TimeOnly? MoreThanValue => Field.SearchMin;
+
+  private async Task OnMoreThanChanged(TimeOnly? value) {
+    await Field.SetSearchMinAsync(Field.Design.SaveAsUtc ? DateTimeHelper.ToUniversalTime(value) : value);
+  }
+  
+  private async Task OnLessThanChanged(TimeOnly? value) {
+    await Field.SetSearchMaxAsync(Field.Design.SaveAsUtc ? DateTimeHelper.ToUniversalTime(value) : value);
+  }
+}
