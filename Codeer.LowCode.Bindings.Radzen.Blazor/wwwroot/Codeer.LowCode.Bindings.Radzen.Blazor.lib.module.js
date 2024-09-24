@@ -1,4 +1,6 @@
-﻿/**
+﻿const AssemblyName = "Codeer.LowCode.Bindings.Radzen.Blazor";
+
+/**
  *
  * @param {string} src
  * @returns {void}
@@ -22,6 +24,10 @@ function installCss(src) {
 }
 
 function startup() {
+  if(document.head.querySelector(`meta[name="${AssemblyName}::autoload"]`)?.content === "false"){
+    return;
+  }
+  
   installCss("_content/Radzen.Blazor/css/material-base.css");
   installScript("_content/Radzen.Blazor/Radzen.Blazor.js");
 }
