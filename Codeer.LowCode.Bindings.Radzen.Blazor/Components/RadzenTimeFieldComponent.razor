@@ -19,6 +19,6 @@
     await Field.SetValueAsync(Field.Design.SaveAsUtc ? DateTimeHelper.ToUniversalTime(value) : value);
   }
 
-  private string GetViewOnlyValue() => GetValue().ToString() ?? "";
+  private string GetViewOnlyValue() => GetValue()?.ToString("HH:mm:ss") ?? "";
 
 }

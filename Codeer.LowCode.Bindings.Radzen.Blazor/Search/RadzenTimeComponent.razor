@@ -3,10 +3,10 @@
 
 <div class="d-flex align-items-center">
   <RadzenDatePicker TValue="TimeOnly?" @bind-Value:get="@MoreThanValue" @bind-Value:set="@OnMoreThanChanged"
-                    ShowTime="true" TimeOnly="true" DateFormat="HH:mm" class="d-block" data-search-target="min" />
+                    ShowTime="true" TimeOnly="true" DateFormat="HH:mm" class="flex-grow-1" data-search-target="min" />
   <span>～</span>
   <RadzenDatePicker TValue="TimeOnly?" @bind-Value:get="@LessThanValue" @bind-Value:set="@OnLessThanChanged"
-                    ShowTime="true" TimeOnly="true" DateFormat="HH:mm" class="d-block" data-search-target="max" />
+                    ShowTime="true" TimeOnly="true" DateFormat="HH:mm" class="flex-grow-1" data-search-target="max" />
 </div>
 
 @code {

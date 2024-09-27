@@ -7,25 +7,27 @@
 @if (IsViewMode) {
   <span class="d-block py-2">@ViewOnlyValue</span>
 } else {
-  <RadzenStack Orientation="Orientation.Horizontal" Gap="2">
-    <RadzenFormField Variant="@RadzenDesign.Variant.ToVariant()" class="flex-grow-1">
-      <ChildContent>
-        @if (IsSelectOnly) {
-          <RadzenTextBox Value="@DisplayText" Disabled="@IsDisabled" ReadOnly="true"/>
-        } else {
-          <RadzenTextBox T="string?" @bind-Value:get="@DisplayText" @bind-Value:set="RaiseOnValueChanged"
-                         Disabled="@IsDisabled" class="flex-grow-1"/>
-        }
-      </ChildContent>
-      <End>
-        @if (HasValue) {
-          <RadzenButton Icon="close" Click="Clear" />
-        }
-      </End>
-    </RadzenFormField>
-    <RadzenButton Icon="search" Click="OpenModal" Disabled="@IsDisabled" class="px-3"
-                  Variant="RadzenDesign.ButtonVariant.ToVariant()" ButtonStyle="@RadzenDesign.ButtonColor.ToButtonStyle()"/>
-  </RadzenStack>
+  <div>
+    <RadzenStack Orientation="Orientation.Horizontal" Gap="2">
+      <RadzenFormField Variant="Variant.Outlined" class="flex-grow-1">
+        <ChildContent>
+          @if (IsSelectOnly) {
+            <RadzenTextBox Value="@DisplayText" Disabled="@IsDisabled" ReadOnly="true"/>
+          } else {
+            <RadzenTextBox T="string?" @bind-Value:get="@DisplayText" @bind-Value:set="RaiseOnValueChanged"
+                           Disabled="@IsDisabled" class="flex-grow-1"/>
+          }
+        </ChildContent>
+        <End>
+          @if (HasValue) {
+            <RadzenButton Icon="close" Click="Clear" Variant="Variant.Text" Size="ButtonSize.Small" />
+          }
+        </End>
+      </RadzenFormField>
+      <RadzenButton Icon="search" Click="OpenModal" Disabled="@IsDisabled" class="px-3"
+                    Variant="RadzenDesign.ButtonVariant.ToVariant()" ButtonStyle="@RadzenDesign.ButtonColor.ToButtonStyle()"/>
+    </RadzenStack>
+  </div>
 
   <ModalBase @bind-IsOpen="_isModalOpen" Title="検索" Size="modal-lg">
     @if (_isModalOpen) {

@@ -3,17 +3,15 @@
 @inherits FieldComponentBase<TextField>
 
 <div class="d-flex">
-  <RadzenTextBox @bind-Value:get="Value" @bind-Value:set="OnChange"/>
-  <RadzenDropDown TValue="MatchComparison" @bind-Value:get="Comparison" @bind-Value:set="@OnComparisonChange">
-    <RadzenDropDownItem TValue="MatchComparison" Value="Equal">Equal</RadzenDropDownItem>
-    <RadzenDropDownItem TValue="MatchComparison" Value="Like">Like</RadzenDropDownItem>
-  </RadzenDropDown>
+  <RadzenTextBox @bind-Value:get="Value" @bind-Value:set="OnChange" class="flex-grow-1"/>
+  <RadzenDropDown TValue="MatchComparison" @bind-Value:get="Comparison" @bind-Value:set="@OnComparisonChange" Data="Items" />
 </div>
 
 @code {
 
   private string? Value => Field.SearchValue;
   private MatchComparison Comparison => Field.SearchComparison;
+  private IEnumerable<MatchComparison> Items => [MatchComparison.Equal, MatchComparison.Like];
 
   private async Task OnChange(string? value)
   {

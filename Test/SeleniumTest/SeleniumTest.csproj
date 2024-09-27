@@ -39,4 +39,8 @@
   <ItemGroup>
     <Folder Include="PageObject\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers\Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.csproj" />
+  </ItemGroup>
 </Project>

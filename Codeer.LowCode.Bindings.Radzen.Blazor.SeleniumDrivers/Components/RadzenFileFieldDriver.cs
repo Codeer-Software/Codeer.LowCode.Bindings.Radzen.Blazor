@@ -8,9 +8,10 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components
     {
         public IWebElement Input => ByTagName("input").Wait().Find();
         public AnchorDriver Download => ByTagName("a").Wait();
-        public ButtonDriver Delete => ByTagName("button").Wait();
+        public ButtonDriver Delete => ByCssSelector("a + button.rz-button-icon-only").Wait();
         public IWebElement ReadOnlyText => ByTagName("span").Wait().Find();
         public IWebElement Image => ByTagName("img").Wait().Find();
+        public bool HasFile { get; set; }
 
         public void Upload(string attachFileFullPath)
         {

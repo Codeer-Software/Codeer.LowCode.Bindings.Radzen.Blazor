@@ -15,6 +15,11 @@
   private List<Data> ItemsSource => GetItemsSource();
   private string? ViewOnlyValue => Field.Services.AppInfoService.IsDesignMode ? "Select" : Field.DisplayText;
 
+  protected override async Task OnAfterRenderAsync(bool firstRender) {
+    await base.OnAfterRenderAsync(firstRender);
+    await OnFocus();
+  }
+
   private List<Data> GetItemsSource() {
     List<Data> emptyItems = Field.Design.EmptyCandidateType != SelectEmptyCandidateType.NotExist
       ? [new("", "")]

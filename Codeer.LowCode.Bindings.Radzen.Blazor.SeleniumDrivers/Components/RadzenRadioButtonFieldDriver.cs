@@ -1,13 +1,13 @@
+using Codeer.LowCode.Bindings.MudBlazor.SeleniumDrivers.Native;
 using OpenQA.Selenium;
-using Selenium.StandardControls;
 using Selenium.StandardControls.PageObjectUtility;
 
 namespace Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components
 {
     public class RadzenRadioButtonFieldDriver : ComponentBase
     {
-        public CheckBoxDriver Input => ByTagName("input").Wait();
-        public IWebElement Label => ByTagName("label").Wait().Find();
+        public RadzenRadioButtonDriver Input => ByCssSelector(".rz-radiobutton").Wait().Find<RadzenRadioButtonDriver>();
+        public IWebElement Label => ByCssSelector("span.rz-radiobutton-label").Wait().Find();
         public IWebElement ReadOnlyText => ByTagName("span").Wait().Find();
         public RadzenRadioButtonFieldDriver(IWebElement element) : base(element) { }
 

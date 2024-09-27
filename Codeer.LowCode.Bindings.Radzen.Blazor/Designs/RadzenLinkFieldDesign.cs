@@ -7,9 +7,6 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.Designs
     public class RadzenLinkFieldDesign : LinkFieldDesign
     {
         [Designer]
-        public RadzenVariant Variant { get; set; }
-
-        [Designer]
         public RadzenVariant ButtonVariant { get; set; }
 
         [Designer]

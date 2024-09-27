@@ -103,7 +103,7 @@ public class 通常Field検索Test
         WebDriverManager.WaitLoading();
         readDataControlsListPage.List.Items.GetItem(0).Date.ReadOnlyText.Text.Is("2024/05/05");
 
-        readDataControlsListPage.Search.Fields.Date.StartDate.Element.SendKeys(Keys.Delete);
+        readDataControlsListPage.Search.Fields.Date.StartDate.Clear();
 
         //終了日検索
         readDataControlsListPage.Search.Fields.Date.EndDate.Edit(2024, 05, 04);
@@ -123,8 +123,8 @@ public class 通常Field検索Test
         readDataControlsListPage.List.Items.GetItem(0).Date.ReadOnlyText.Text.Is("2024/05/05");
 
         //空にした場合は条件はクリアされる URLのパラメータも消える
-        readDataControlsListPage.Search.Fields.Date.StartDate.Element.SendKeys(Keys.Delete);
-        readDataControlsListPage.Search.Fields.Date.EndDate.Element.SendKeys(Keys.Delete);
+        readDataControlsListPage.Search.Fields.Date.StartDate.Clear();
+        readDataControlsListPage.Search.Fields.Date.EndDate.Clear();
         readDataControlsListPage.Search.Search.Click();
         WebDriverManager.WaitLoading();
         readDataControlsListPage.List.Items.Count.Is(16);
@@ -148,7 +148,7 @@ public class 通常Field検索Test
         WebDriverManager.WaitLoading();
         readDataControlsListPage.List.Items.GetItem(0).DateTime.ReadOnlyText.Text.Is("2024/05/06 13:00:00");
 
-        readDataControlsListPage.Search.Fields.DateTime.StartDate.Element.SendKeys(Keys.Delete);
+        readDataControlsListPage.Search.Fields.DateTime.StartDate.Clear();
 
         //終了日検索  見つからないケース
         readDataControlsListPage.Search.Fields.DateTime.EndDate.Edit(2024, 05, 05, 01, 14);
@@ -169,8 +169,8 @@ public class 通常Field検索Test
         readDataControlsListPage.List.Items.GetItem(0).DateTime.ReadOnlyText.Text.Is("2024/05/06 13:00:00");
 
         //空にした場合は条件はクリアされる URLのパラメータも消える
-        readDataControlsListPage.Search.Fields.DateTime.StartDate.Element.SendKeys(Keys.Delete);
-        readDataControlsListPage.Search.Fields.DateTime.EndDate.Element.SendKeys(Keys.Delete);
+        readDataControlsListPage.Search.Fields.DateTime.StartDate.Clear();
+        readDataControlsListPage.Search.Fields.DateTime.EndDate.Clear();
         readDataControlsListPage.Search.Search.Click();
         WebDriverManager.WaitLoading();
         readDataControlsListPage.List.Items.Count.Is(16);
@@ -361,7 +361,7 @@ public class 通常Field検索Test
         WebDriverManager.WaitLoading();
         readDataControlsListPage.List.Items.GetItem(0).Time.ReadOnlyText.Text.Is("19:00:00");
 
-        readDataControlsListPage.Search.Fields.Time.StartTime.Element.SendKeys(Keys.Delete);
+        readDataControlsListPage.Search.Fields.Time.StartTime.Clear();
 
         //終了時刻 検索 みつからない
         readDataControlsListPage.Search.Fields.Time.EndTime.Edit(18, 59);
@@ -382,8 +382,8 @@ public class 通常Field検索Test
         readDataControlsListPage.List.Items.GetItem(0).Time.ReadOnlyText.Text.Is("19:00:00");
 
         //空にした場合は条件はクリアされる URLのパラメータも消える
-        readDataControlsListPage.Search.Fields.Time.StartTime.Element.SendKeys(Keys.Delete);
-        readDataControlsListPage.Search.Fields.Time.EndTime.Element.SendKeys(Keys.Delete);
+        readDataControlsListPage.Search.Fields.Time.StartTime.Clear();
+        readDataControlsListPage.Search.Fields.Time.EndTime.Clear();
         readDataControlsListPage.Search.Search.Click();
         WebDriverManager.WaitLoading();
         readDataControlsListPage.List.Items.Count.Is(16);

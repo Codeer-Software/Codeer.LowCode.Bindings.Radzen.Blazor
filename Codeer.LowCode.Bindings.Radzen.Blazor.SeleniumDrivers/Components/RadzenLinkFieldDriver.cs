@@ -9,8 +9,8 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components
         where TSearchLayout : ComponentBase
     {
         public TextBoxDriver Input => ByTagName("input").Wait();
-        public ButtonDriver Clear => ByCssSelector(".input-group button.btn-close").Wait();
-        public ButtonDriver Search => ByCssSelector(".input-group button:has(.bi-search)").Wait();
+        public ButtonDriver Clear => ByCssSelector(".rz-form-field-content .rz-form-field-end button.rz-button-icon-only").Wait();
+        public ButtonDriver Search => ByCssSelector(".rz-stack > button.rz-button-icon-only").Wait();
         public IWebElement ReadOnlyText => ByTagName("span").Wait().Find();
         public SearchFieldDriver<TSearchLayout> LinkSearch => ByCssSelector("div[data-system='search-field']").Wait();
         public ListFieldDriver<TListLayout> LinkList => ByCssSelector("div[data-system='list-field']").Wait();

@@ -129,8 +129,8 @@ public class SearchFieldDetailListTest
         WebDriverManager.WaitLoading();
         readListDataDetailPage.Detail.List.Items.Count.Is(1);
 
-        readListDataDetailPage.Detail.Search.Fields.Date.StartDate.Element.SendKeys(Keys.Delete);
-        readListDataDetailPage.Detail.Search.Fields.Date.EndDate.Element.SendKeys(Keys.Delete);
+        readListDataDetailPage.Detail.Search.Fields.Date.StartDate.Clear();
+        readListDataDetailPage.Detail.Search.Fields.Date.EndDate.Clear();
 
         readListDataDetailPage.Detail.Search.Search.Click();
         WebDriverManager.WaitLoading();
@@ -173,8 +173,8 @@ public class SearchFieldDetailListTest
         WebDriverManager.WaitLoading();
         readListDataDetailPage.Detail.List.Items.Count.Is(1);
 
-        readListDataDetailPage.Detail.Search.Fields.DateTime.StartDate.Element.SendKeys(Keys.Delete);
-        readListDataDetailPage.Detail.Search.Fields.DateTime.EndDate.Element.SendKeys(Keys.Delete);
+        readListDataDetailPage.Detail.Search.Fields.DateTime.StartDate.Clear();
+        readListDataDetailPage.Detail.Search.Fields.DateTime.EndDate.Clear();
 
         readListDataDetailPage.Detail.Search.Search.Click();
         WebDriverManager.WaitLoading();
@@ -360,8 +360,8 @@ public class SearchFieldDetailListTest
         WebDriverManager.WaitLoading();
         readListDataDetailPage.Detail.List.Items.Count.Is(1);
 
-        readListDataDetailPage.Detail.Search.Fields.Time.StartTime.Element.SendKeys(Keys.Delete);
-        readListDataDetailPage.Detail.Search.Fields.Time.EndTime.Element.SendKeys(Keys.Delete);
+        readListDataDetailPage.Detail.Search.Fields.Time.StartTime.Clear();
+        readListDataDetailPage.Detail.Search.Fields.Time.EndTime.Clear();
 
         readListDataDetailPage.Detail.Search.Search.Click();
         WebDriverManager.WaitLoading();

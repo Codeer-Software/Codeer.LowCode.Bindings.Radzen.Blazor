@@ -2,10 +2,10 @@
 
 <div class="d-flex align-items-center">
   <RadzenDatePicker TValue="DateOnly?" @bind-Value:get="MoreThanValue" @bind-Value:set="@OnMoreThanChanged"
-                    DateFormat="yyyy/MM/dd" class="d-block" data-search-target="min"/>
+                    DateFormat="yyyy/MM/dd" class="flex-grow-1" data-search-target="min"/>
   <span>～</span>
   <RadzenDatePicker TValue="DateOnly?" @bind-Value:get="LessThanValue" @bind-Value:set="@OnLessThanChanged"
-                    DateFormat="yyyy/MM/dd" class="d-block" data-search-target="max"/>
+                    DateFormat="yyyy/MM/dd" class="flex-grow-1" data-search-target="max"/>
 </div>
 
 @code {
