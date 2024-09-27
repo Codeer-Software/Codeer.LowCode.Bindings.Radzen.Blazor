@@ -4,8 +4,10 @@
 @if (IsViewMode) {
   <span class="d-block py-2">@(ViewOnlyValue)</span>
 } else {
-  <RadzenDropDown TValue="string" @bind-Value:get="SelectedValue" @bind-Value:set="@OnChange" InputId="@WebElementId" Disabled="@IsDisabled"
-                  Data="ItemsSource" TextProperty="@nameof(Data.Text)" ValueProperty="@nameof(Data.Value)" class="d-block" />
+  <div>
+    <RadzenDropDown TValue="string" @bind-Value:get="SelectedValue" @bind-Value:set="@OnChange" InputId="@WebElementId" Disabled="@IsDisabled"
+                    Data="ItemsSource" TextProperty="@nameof(Data.Text)" ValueProperty="@nameof(Data.Value)" class="d-block" />
+  </div>
 }
 
 @code {

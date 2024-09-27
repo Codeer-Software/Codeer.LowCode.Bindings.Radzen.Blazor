@@ -7,3 +7,7 @@ select[style*="--foreground:"],
 span[style*="--foreground:"] {
     color: var(--foreground);
 }
+
+::deep .rz-helper-hidden-accessible input {
+  width: 100%;
+}
