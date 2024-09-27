@@ -1,0 +1,82 @@
+@using Codeer.LowCode.Blazor.Components.Dialog
+@using Codeer.LowCode.Blazor.Components.Renderer
+@using Codeer.LowCode.Blazor.Repository.Match
+@using global::Radzen.Blazor
+@using global::Radzen
+@inherits RadzenFieldComponentBase<LinkField, RadzenLinkFieldDesign>
+
+<div>
+  <RadzenStack Orientation="Orientation.Horizontal" Gap="2">
+    <RadzenFormField Variant="Variant.Outlined" class="flex-grow-1">
+      <ChildContent>
+        @if (IsSelectOnly) {
+        <RadzenTextBox Value="@DisplayText" Disabled="@IsDisabled" ReadOnly="true"/>
+        } else {
+        <RadzenTextBox T="string?" @bind-Value:get="@DisplayText" @bind-Value:set="OnChange"
+                       Disabled="@IsDisabled" class="flex-grow-1"/>
+        }
+      </ChildContent>
+      <End>
+        @if (HasValue) {
+        <RadzenButton Icon="close" Click="Clear" Variant="Variant.Text" Size="ButtonSize.Small" />
+        }
+      </End>
+    </RadzenFormField>
+    <RadzenButton Icon="search" Click="OpenModal" Disabled="@IsDisabled" class="px-3"
+                  Variant="RadzenDesign.ButtonVariant.ToVariant()" ButtonStyle="@RadzenDesign.ButtonColor.ToButtonStyle()"/>
+  </RadzenStack>
+</div>
+
+<ModalBase @bind-IsOpen="_isModalOpen" Title="検索" Size="modal-lg">
+  @if (_isModalOpen) {
+  <LinkTableRenderer SearchConditions="@Conditions" ItemSelected="OnItemSelected" ModuleDesign="Field.Module.Design" LinkFieldDesign="Field.Design"/>
+  }
+</ModalBase>
+
+@code {
+
+  private bool _isModalOpen;
+  private SearchCondition Conditions => Field.GetSearchConditionAssignedValue();
+
+  private bool IsSelectOnly => !string.IsNullOrEmpty(Field.Design.DisplayTextVariable);
+  private bool IsDisabled => Field.IsEnabled == false;
+  private string? Value => Field.SearchValue;
+  private bool HasValue => Value != null;
+  private string DisplayText => Field.DisplayText;
+  
+  [Parameter] public SearchCondition? SearchConditions { get; set; }
+
+  protected override async Task OnParametersSetAsync()
+  {
+    await base.OnParametersSetAsync();
+    if (IsSelectOnly && !string.IsNullOrEmpty(Value) && string.IsNullOrEmpty(Field.DisplayText))
+    {
+      Field.DisplayText = await Field.GetLinkDisplayText(Value);
+    }
+  }
+
+  private void OpenModal() => _isModalOpen = true;
+
+  private void CloseModal() => _isModalOpen = false;
+
+  private async void OnItemSelected(Module obj)
+  {
+    // ここはValueVariableの値じゃないとあかん
+    await Field.SetSearchValueAsync(LinkField.GetLinkValue(Field.Design, obj));
+    // こっちはDisplayTextVariableの値
+    Field.DisplayText = LinkField.GetLinkDisplayText(Field.Design, obj);
+    CloseModal();
+  }
+
+  private async void Clear()
+  {
+    await Field.SetSearchValueAsync(null);
+    Field.DisplayText = string.Empty;
+  }
+
+  private async Task OnChange(string? value)
+  {
+    await Field.SetSearchValueAsync(value);
+  }
+
+}

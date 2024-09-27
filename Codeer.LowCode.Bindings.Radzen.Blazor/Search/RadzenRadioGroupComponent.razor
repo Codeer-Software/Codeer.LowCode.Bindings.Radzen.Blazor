@@ -1,0 +1,46 @@
+@using Codeer.LowCode.Blazor.RequestInterfaces
+@inherits RadzenFieldComponentBase<RadioGroupField, RadzenRadioGroupFieldDesign>
+@inject Services Services
+
+<div class="root">
+  <div>
+    @if (Field.Design.AllowOrSearch) {
+      <RadzenDropDown TValue="IEnumerable<string>" @bind-Value:get="@SelectedValues" @bind-Value:set="@OnChangeItems"
+                      ValueProperty="@("Value")" TextProperty="@("Key")" Data="@ItemsSource" AllowClear="true" Multiple="true" class="d-block"/>
+    } else {
+      <RadzenDropDown TValue="string" @bind-Value:get="@SelectedValue" @bind-Value:set="@OnChange"
+                      ValueProperty="@("Value")" TextProperty="@("Key")" Data="@ItemsSource" AllowClear="true" class="d-block"/>
+    }
+  </div>
+  <div>
+    <RadzenToggleButton TValue="bool" @bind-Value:get="@Field.IsInverted" @bind-Value:set="@OnChangeFlag" Name="@WebElementId" Text="Not"/>
+  </div>
+</div>
+
+@code {
+  private string SelectedValue => Field.SearchValue ?? string.Empty;
+  private IEnumerable<string> SelectedValues => Field.SearchValues.Where(s => s is not null).ToList()!;
+  private IEnumerable<KeyValuePair<string, string>> ItemsSource => GetItemsSource();
+
+  private IEnumerable<KeyValuePair<string, string>> GetItemsSource() {
+    if (Services.AppInfoService.IsDesignMode) {
+      return [new KeyValuePair<string, string>("Item1", "Value1"), new KeyValuePair<string, string>("Item2", "Value2")];
+    }
+
+    return new List<KeyValuePair<string, string>> { new("", "") }.Concat(Field.DisplayTextAndValue);
+  }
+
+  private async Task OnChange(string? value) {
+    if (string.IsNullOrEmpty(value)) value = null;
+    await Field.SetSearchValueAsync(value);
+  }
+
+  private async Task OnChangeItems(IEnumerable<string> obj) {
+    await Field.SetSearchValuesAsync(obj);
+  }
+
+  private async Task OnChangeFlag(bool isChecked) {
+    await Field.SetNotFlag(isChecked);
+  }
+
+}

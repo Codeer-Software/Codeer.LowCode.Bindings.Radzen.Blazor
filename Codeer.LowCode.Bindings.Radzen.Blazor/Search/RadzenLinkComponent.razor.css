@@ -1,0 +1,11 @@
+.w-0 {
+  width: 0;
+}
+
+::deep .rz-form-field-content {
+  margin-top: 0;
+}
+
+::deep .rz-form-field-content > input {
+  width: 100%;
+}
