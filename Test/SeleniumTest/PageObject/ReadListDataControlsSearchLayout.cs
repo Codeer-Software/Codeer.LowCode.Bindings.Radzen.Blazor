@@ -21,11 +21,11 @@ namespace SeleniumTest.PageObject
         public LabelFieldSearchDriver DateTimeLabel => ByCssSelector("div[data-name='DateTimeLabel']").Wait();
         public RadzenDateTimeFieldSearchDriver DateTime => ByCssSelector("div[data-name='DateTime']").Wait();
         public LabelFieldSearchDriver LinkLabel => ByCssSelector("div[data-name='LinkLabel']").Wait();
-        public LinkFieldSearchDriver<LinkDataListLayout, LinkDataSearchLayout> Link => ByCssSelector("div[data-name='Link']").Wait();
+        public RadzenLinkFieldSearchDriver<LinkDataListLayout, LinkDataSearchLayout> Link => ByCssSelector("div[data-name='Link']").Wait();
         public LabelFieldSearchDriver NumberLabel => ByCssSelector("div[data-name='NumberLabel']").Wait();
         public RadzenNumberFieldSearchDriver Number => ByCssSelector("div[data-name='Number']").Wait();
         public LabelFieldSearchDriver RadioLabel => ByCssSelector("div[data-name='RadioLabel']").Wait();
-        public RadioGroupFieldSearchDriver RadioGroup => ByCssSelector("div[data-name='RadioGroup']").Wait();
+        public RadzenRadioGroupFieldSearchDriver RadioGroup => ByCssSelector("div[data-name='RadioGroup']").Wait();
         public LabelFieldSearchDriver SelectLabel => ByCssSelector("div[data-name='SelectLabel']").Wait();
         public RadzenSelectFieldSearchDriver Select => ByCssSelector("div[data-name='Select']").Wait();
         public LabelFieldSearchDriver SelectLinkLabel => ByCssSelector("div[data-name='SelectLinkLabel']").Wait();

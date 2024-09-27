@@ -139,7 +139,7 @@
       "IsRequired": false,
       "OnDataChanged": "",
       "Name": "RadioGroup",
-      "TypeFullName": "Codeer.LowCode.Blazor.Repository.Design.RadioGroupFieldDesign"
+      "TypeFullName": "Codeer.LowCode.Bindings.Radzen.Blazor.Designs.RadzenRadioGroupFieldDesign"
     },
     {
       "Candidates": [

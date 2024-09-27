@@ -15,10 +15,10 @@ namespace SeleniumTest.PageObject
         public RadzenDateFieldSearchDriver Date => ByCssSelector("div[data-name='Date']").Wait();
         public RadzenDateTimeFieldSearchDriver DateTime => ByCssSelector("div[data-name='DateTime']").Wait();
         public DetailListFieldSearchDriver DetailList => ByCssSelector("div[data-name='DetailList']").Wait();
-        public LinkFieldSearchDriver<LinkDataListLayout, LinkDataSearchLayout> Link => ByCssSelector("div[data-name='Link']").Wait();
+        public RadzenLinkFieldSearchDriver<LinkDataListLayout, LinkDataSearchLayout> Link => ByCssSelector("div[data-name='Link']").Wait();
         public ListFieldSearchDriver List => ByCssSelector("div[data-name='List']").Wait();
         public RadzenNumberFieldSearchDriver Number => ByCssSelector("div[data-name='Number']").Wait();
-        public RadioGroupFieldSearchDriver RadioGroup => ByCssSelector("div[data-name='RadioGroup']").Wait();
+        public RadzenRadioGroupFieldSearchDriver RadioGroup => ByCssSelector("div[data-name='RadioGroup']").Wait();
         public RadzenSelectFieldSearchDriver Select => ByCssSelector("div[data-name='Select']").Wait();
         public RadzenTextFieldSearchDriver Text => ByCssSelector("div[data-name='Text']").Wait();
         public TileListFieldSearchDriver TileList => ByCssSelector("div[data-name='TileList']").Wait();
