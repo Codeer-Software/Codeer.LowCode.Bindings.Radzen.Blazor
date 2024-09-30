@@ -1,4 +1,6 @@
 @using Codeer.LowCode.Blazor.RequestInterfaces
+@using global::Radzen
+@using global::Radzen.Blazor
 @inherits FieldComponentBase<SelectField>
 @inject Services Services
 
@@ -13,7 +15,8 @@
     }
   </div>
   <div>
-    <RadzenToggleButton TValue="bool" @bind-Value:get="@Field.IsInverted" @bind-Value:set="@OnChangeFlag" Name="@WebElementId" Text="Not"/>
+    <RadzenToggleButton TValue="bool" @bind-Value:get="@Field.IsInverted" @bind-Value:set="@OnChangeFlag" Name="@WebElementId" Text="Not"
+                        Shade="Shade.Light" ToggleShade="Shade.Darker"/>
   </div>
 </div>
 

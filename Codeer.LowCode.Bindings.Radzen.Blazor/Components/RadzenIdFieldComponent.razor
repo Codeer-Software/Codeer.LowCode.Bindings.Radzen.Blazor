@@ -1,10 +1,12 @@
+@using Codeer.LowCode.Bindings.Radzen.Blazor.Internal.Components
 @inherits RadzenFieldComponentBase<IdField, RadzenIdFieldDesign>
 
 @if (IsViewMode) {
   <span class="d-block py-2">@ViewOnlyValue</span>
 } else {
-  <RadzenTextBox @bind-Value:get="@Value" @bind-Value:set="@RaiseOnValueChanged" 
+  <RadzenTextBox @bind-Value:get="@Value" @bind-Value:set="@RaiseOnValueChanged" Name="@WebElementId"
                  Disabled="@IsDisabled" ReadOnly="IsViewMode" Placeholder="@Placeholder" class="d-block w-100" />
+  <Validator IsValid="@Field.IsValid" ErrorMessage="@Field.ErrorText" />
 }
 
 @code {

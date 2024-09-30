@@ -1,10 +1,12 @@
+@using Codeer.LowCode.Bindings.Radzen.Blazor.Internal.Components
 @inherits RadzenFieldComponentBase<DateTimeField, RadzenDateTimeFieldDesign>
 
 @if (IsViewMode) {
   <span class="d-block py-2">@GetViewOnlyValue()</span>
 } else {
-  <RadzenDatePicker TValue="DateTime?" @bind-Value:get="@GetValue()" @bind-Value:set="@RaiseOnValueChanged"
+  <RadzenDatePicker TValue="DateTime?" @bind-Value:get="@GetValue()" @bind-Value:set="@RaiseOnValueChanged" Name="@WebElementId"
                     Disabled="@IsDisabled" ReadOnly="IsViewMode" ShowTime="true" DateFormat="yyyy/MM/dd HH:mm" class="d-block" />
+  <Validator IsValid="@Field.IsValid" ErrorMessage="@Field.ErrorText" />
 }
 
 @code {

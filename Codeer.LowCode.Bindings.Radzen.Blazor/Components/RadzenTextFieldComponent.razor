@@ -1,15 +1,17 @@
+@using Codeer.LowCode.Bindings.Radzen.Blazor.Internal.Components
 @inherits RadzenFieldComponentBase<TextField, RadzenTextFieldDesign>
 
 @if (IsViewMode) {
   <span class="d-block py-2" style="@(WhiteSpaceStyle())">@ViewOnlyValue</span>
 } else {
   if (Field.Design.IsMultiline) {
-    <RadzenTextArea @bind-Value:get="@Value" @bind-Value:set="@RaiseOnValueChanged" 
+    <RadzenTextArea @bind-Value:get="@Value" @bind-Value:set="@RaiseOnValueChanged" Name="@WebElementId"
                     Disabled="@IsDisabled" ReadOnly="IsViewMode" MaxLength="@(MaxLength)" Placeholder="@Placeholder" Rows="@Rows" class="d-block w-100" />
   } else {
-    <RadzenTextBox @bind-Value:get="@Value" @bind-Value:set="@RaiseOnValueChanged"
+    <RadzenTextBox @bind-Value:get="@Value" @bind-Value:set="@RaiseOnValueChanged" Name="@WebElementId"
                    Disabled="@IsDisabled" ReadOnly="IsViewMode" MaxLength="@(MaxLength)" Placeholder="@Placeholder" class="d-block w-100" />
   }
+  <Validator IsValid="@Field.IsValid" ErrorMessage="@Field.ErrorText" />
 }
 
 @code {

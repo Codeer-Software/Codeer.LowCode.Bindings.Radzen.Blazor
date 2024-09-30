@@ -1,12 +1,14 @@
 @using Codeer.LowCode.Blazor.Repository.Design
+@using Codeer.LowCode.Bindings.Radzen.Blazor.Internal.Components
 @inherits RadzenFieldComponentBase<SelectField, RadzenSelectFieldDesign>
 
 @if (IsViewMode) {
   <span class="d-block py-2">@(ViewOnlyValue)</span>
 } else {
   <div>
-    <RadzenDropDown TValue="string" @bind-Value:get="SelectedValue" @bind-Value:set="@OnChange" InputId="@WebElementId" Disabled="@IsDisabled"
+    <RadzenDropDown TValue="string" @bind-Value:get="SelectedValue" @bind-Value:set="@OnChange" InputId="@WebElementId" Disabled="@IsDisabled" Name="@WebElementId"
                     Data="ItemsSource" TextProperty="@nameof(Data.Text)" ValueProperty="@nameof(Data.Value)" class="d-block" />
+    <Validator IsValid="@Field.IsValid" ErrorMessage="@Field.ErrorText" />
   </div>
 }
 

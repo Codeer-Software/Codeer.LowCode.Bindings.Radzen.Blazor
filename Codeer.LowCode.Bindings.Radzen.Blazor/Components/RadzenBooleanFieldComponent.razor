@@ -1,4 +1,7 @@
 @using Codeer.LowCode.Blazor.Repository.Design
+@using global::Radzen
+@using global::Radzen.Blazor
+@using Codeer.LowCode.Bindings.Radzen.Blazor.Internal.Components
 @inherits RadzenFieldComponentBase<BooleanField, RadzenBooleanFieldDesign>
 
 @if (Field.ModuleLayoutType == ModuleLayoutType.List && Field.IsViewOnly) {
@@ -14,8 +17,10 @@
     <RadzenLabel Text="@Label" Component="@WebElementId" class="rz-ms-2"/>
   } else if (Field.Design.UIType == BooleanUIType.ToggleButton) {
     <RadzenToggleButton @bind-Value:get="@IsChecked" @bind-Value:set="@OnChange" Text="@Label" Disabled="@(IsDisabled || IsViewMode)"
-                        Variant="RadzenDesign.Variant.ToVariant()" ToggleButtonStyle="RadzenDesign.Color.ToButtonStyle()"/>
+                        Variant="RadzenDesign.Variant.ToVariant()" ToggleButtonStyle="RadzenDesign.Color.ToButtonStyle()"
+                        Shade="Shade.Light" ToggleShade="Shade.Darker"/>
   }
+  <Validator IsValid="@Field.IsValid" ErrorMessage="@Field.ErrorText" />
 }
 
 @code {

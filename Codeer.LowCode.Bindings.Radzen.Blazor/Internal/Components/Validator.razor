@@ -1,0 +1,15 @@
+﻿@if (!IsValid) {
+  <div class="rz-message rz-messages-error d-block" role="alert">
+    @ErrorMessage
+  </div>
+}
+
+@code {
+
+  [Parameter]
+  public bool IsValid { get; set; }
+
+  [Parameter]
+  public string ErrorMessage { get; set; } = "";
+
+}
