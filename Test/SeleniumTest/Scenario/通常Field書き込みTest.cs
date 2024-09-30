@@ -156,7 +156,7 @@ public class 通常Field書き込みTest
         writeDataControlsDetailPage.Detail.Date.Input.Edit(2024, 9, 15);
         writeDataControlsDetailPage.Detail.Submit.Submit.Click();
         WebDriverManager.WaitLoading();
-        writeDataControlsDetailPage.Detail.Date.Input.Text.Is("2024-09-15");
+        writeDataControlsDetailPage.Detail.Date.Input.Text.Is("2024/09/15");
 
         //一覧での表示確認
         _driver.AttachMainLeft().WriteDataControls.Click();
@@ -172,7 +172,7 @@ public class 通常Field書き込みTest
         writeDataControlsDetailPage.Detail.Date.Input.Edit(2024, 12, 31);
         writeDataControlsDetailPage2.Detail.Submit.Submit.Click();
         WebDriverManager.WaitLoading();
-        writeDataControlsDetailPage.Detail.Date.Input.Text.Is("2024-12-31");
+        writeDataControlsDetailPage.Detail.Date.Input.Text.Is("2024/12/31");
 
         //一覧表示で確認
         _driver.AttachMainLeft().WriteDataControls.Click();
@@ -197,7 +197,7 @@ public class 通常Field書き込みTest
         writeDataControlsDetailPage.Detail.DateTime.Input.Edit(2024, 9, 15, 10, 34);
         writeDataControlsDetailPage.Detail.Submit.Submit.Click();
         WebDriverManager.WaitLoading();
-        writeDataControlsDetailPage.Detail.DateTime.Input.Text.Is("2024-09-15T10:34");
+        writeDataControlsDetailPage.Detail.DateTime.Input.Text.Is("2024/09/15 10:34");
 
         //一覧での表示確認
         _driver.AttachMainLeft().WriteDataControls.Click();
@@ -213,7 +213,7 @@ public class 通常Field書き込みTest
         writeDataControlsDetailPage.Detail.DateTime.Input.Edit(2024, 12, 31, 11, 56);
         writeDataControlsDetailPage2.Detail.Submit.Submit.Click();
         WebDriverManager.WaitLoading();
-        writeDataControlsDetailPage.Detail.DateTime.Input.Text.Is("2024-12-31T11:56");
+        writeDataControlsDetailPage.Detail.DateTime.Input.Text.Is("2024/12/31 11:56");
 
         //一覧表示で確認
         _driver.AttachMainLeft().WriteDataControls.Click();

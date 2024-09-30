@@ -168,7 +168,7 @@ public class DetailListField書き込み
         writeListDataDetailPage.Detail.List.Items.GetItem(0).Date.Input.Edit(2024, 9, 11);
         writeListDataDetailPage.Detail.SubmitButton.Submit.Click();
         WebDriverManager.WaitLoading();
-        writeListDataDetailPage.Detail.List.Items.GetItem(0).Date.Input.Text.Is("2024-09-11");
+        writeListDataDetailPage.Detail.List.Items.GetItem(0).Date.Input.Text.Is("2024/09/11");
 
         //一覧に戻る
         _driver.AttachMainLeft().WriteDetailListData.Click();
@@ -180,11 +180,11 @@ public class DetailListField書き込み
         //更新
         var writeListDataDetailPage2 = _driver.AttachWriteDetailListDataDetailPage();
         WebDriverManager.WaitLoading();
-        writeListDataDetailPage2.Detail.List.Items.GetItem(0).Date.Input.Text.Is("2024-09-11");
+        writeListDataDetailPage2.Detail.List.Items.GetItem(0).Date.Input.Text.Is("2024/09/11");
         writeListDataDetailPage2.Detail.List.Items.GetItem(0).Date.Input.Edit(2024, 11, 13);
         writeListDataDetailPage2.Detail.SubmitButton.Submit.Click();
         WebDriverManager.WaitLoading();
-        writeListDataDetailPage2.Detail.List.Items.GetItem(0).Date.Input.Text.Is("2024-11-13");
+        writeListDataDetailPage2.Detail.List.Items.GetItem(0).Date.Input.Text.Is("2024/11/13");
 
         //一覧に戻る
         _driver.AttachMainLeft().WriteDetailListData.Click();
@@ -196,7 +196,7 @@ public class DetailListField書き込み
         //最後の編集を確認
         var writeListDataDetailPage3 = _driver.AttachWriteDetailListDataDetailPage();
         WebDriverManager.WaitLoading();
-        writeListDataDetailPage3.Detail.List.Items.GetItem(0).Date.Input.Text.Is("2024-11-13");
+        writeListDataDetailPage3.Detail.List.Items.GetItem(0).Date.Input.Text.Is("2024/11/13");
     }
 
     [Test]
@@ -215,7 +215,7 @@ public class DetailListField書き込み
             .Edit(2024, 9, 11, 7, 55);
         writeListDataDetailPage.Detail.SubmitButton.Submit.Click();
         WebDriverManager.WaitLoading();
-        writeListDataDetailPage.Detail.List.Items.GetItem(0).DateTime.Input.Text.Is("2024-09-11T07:55");
+        writeListDataDetailPage.Detail.List.Items.GetItem(0).DateTime.Input.Text.Is("2024/09/11 07:55");
 
         //一覧に戻る
         _driver.AttachMainLeft().WriteDetailListData.Click();
@@ -227,12 +227,12 @@ public class DetailListField書き込み
         //更新
         var writeListDataDetailPage2 = _driver.AttachWriteDetailListDataDetailPage();
         WebDriverManager.WaitLoading();
-        writeListDataDetailPage2.Detail.List.Items.GetItem(0).DateTime.Input.Text.Is("2024-09-11T07:55");
+        writeListDataDetailPage2.Detail.List.Items.GetItem(0).DateTime.Input.Text.Is("2024/09/11 07:55");
         writeListDataDetailPage2.Detail.List.Items.GetItem(0).DateTime.Input
             .Edit(2024, 12, 23, 8, 13);
         writeListDataDetailPage2.Detail.SubmitButton.Submit.Click();
         WebDriverManager.WaitLoading();
-        writeListDataDetailPage2.Detail.List.Items.GetItem(0).DateTime.Input.Text.Is("2024-12-23T08:13");
+        writeListDataDetailPage2.Detail.List.Items.GetItem(0).DateTime.Input.Text.Is("2024/12/23 08:13");
 
         //一覧に戻る
         _driver.AttachMainLeft().WriteDetailListData.Click();
@@ -244,7 +244,7 @@ public class DetailListField書き込み
         //最後の編集を確認
         var writeListDataDetailPage3 = _driver.AttachWriteDetailListDataDetailPage();
         WebDriverManager.WaitLoading();
-        writeListDataDetailPage3.Detail.List.Items.GetItem(0).DateTime.Input.Text.Is("2024-12-23T08:13");
+        writeListDataDetailPage3.Detail.List.Items.GetItem(0).DateTime.Input.Text.Is("2024/12/23 08:13");
     }
 
     [Test]
