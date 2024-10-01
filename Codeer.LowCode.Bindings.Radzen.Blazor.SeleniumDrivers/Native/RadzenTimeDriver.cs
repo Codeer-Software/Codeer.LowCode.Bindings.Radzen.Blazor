@@ -8,7 +8,7 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Native
         public RadzenTimeDriver(IWebElement element) : base(element) { }
         public RadzenTimeDriver(IWebElement element, Action wait) : base(element, wait) { }
 
-        public void Edit(int hour, int minute)
+        public new void Edit(int hour, int minute)
         {
             Element.Show();
             Element.Focus();
