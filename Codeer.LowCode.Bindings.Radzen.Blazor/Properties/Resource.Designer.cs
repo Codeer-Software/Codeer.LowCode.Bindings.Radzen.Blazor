@@ -77,5 +77,23 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.Properties {
                 return ResourceManager.GetString("SearchField.FileField.FileSize", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Equals に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SearchField_MatchCondition_Equals {
+            get {
+                return ResourceManager.GetString("SearchField.MatchCondition.Equals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Contains に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SearchField_MatchCondition_Like {
+            get {
+                return ResourceManager.GetString("SearchField.MatchCondition.Like", resourceCulture);
+            }
+        }
     }
 }

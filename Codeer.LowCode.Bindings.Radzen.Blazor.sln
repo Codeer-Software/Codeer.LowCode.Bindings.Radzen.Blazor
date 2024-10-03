@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Codeer.LowCode.Bindings.Rad
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F1B77091-03CE-4357-968C-81960B0E0B1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTest", "Test\SeleniumTest\SeleniumTest.csproj", "{C6209296-A752-4BA6-8597-729061AE3CCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumTest", "Test\SeleniumTest\SeleniumTest.csproj", "{C6209296-A752-4BA6-8597-729061AE3CCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

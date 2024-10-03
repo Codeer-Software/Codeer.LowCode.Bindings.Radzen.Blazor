@@ -1,17 +1,17 @@
 @using Codeer.LowCode.Blazor.OperatingModel
 @using Codeer.LowCode.Blazor.Repository.Match
+@using Codeer.LowCode.Bindings.Radzen.Blazor.Internal
 @inherits FieldComponentBase<TextField>
 
 <div class="d-flex">
   <RadzenTextBox @bind-Value:get="Value" @bind-Value:set="OnChange" class="flex-grow-1"/>
-  <RadzenDropDown TValue="MatchComparison" @bind-Value:get="Comparison" @bind-Value:set="@OnComparisonChange" Data="Items" />
+  <MatchConditionDropdown @bind-MatchComparison:get="Comparison" @bind-MatchComparison:set="@OnComparisonChange" />
 </div>
 
 @code {
 
   private string? Value => Field.SearchValue;
   private MatchComparison Comparison => Field.SearchComparison;
-  private IEnumerable<MatchComparison> Items => [MatchComparison.Equal, MatchComparison.Like];
 
   private async Task OnChange(string? value)
   {

@@ -1,0 +1,25 @@
+﻿@using Codeer.LowCode.Bindings.Radzen.Blazor.Properties
+@using Codeer.LowCode.Blazor.Repository.Match
+
+<RadzenDropDown TValue="MatchComparison" @bind-Value:get="MatchComparison" @bind-Value:set="@OnComparisonChange"
+                ValueProperty="@("Key")" TextProperty="@("Value")" Data="Items"/>
+
+@code {
+
+  private IEnumerable<KeyValuePair<MatchComparison, string>> Items => [
+    new KeyValuePair<MatchComparison, string>(MatchComparison.Equal, Resource.SearchField_MatchCondition_Equals),
+    new KeyValuePair<MatchComparison, string>(MatchComparison.Like, Resource.SearchField_MatchCondition_Like)
+  ];
+
+
+  [Parameter]
+  public MatchComparison MatchComparison { get; set; } = MatchComparison.Equal;
+
+  [Parameter]
+  public EventCallback<MatchComparison> MatchComparisonChanged { get; set; }
+
+  private async Task OnComparisonChange(MatchComparison value) {
+    await MatchComparisonChanged.InvokeAsync(value);
+  }
+
+}
