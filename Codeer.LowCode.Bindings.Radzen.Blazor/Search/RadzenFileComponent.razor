@@ -1,9 +1,10 @@
 @using Codeer.LowCode.Blazor.OperatingModel
 @using Codeer.LowCode.Blazor.Repository.Match
+@using Codeer.LowCode.Bindings.Radzen.Blazor.Properties
 @inherits FieldComponentBase<FileField>
 
 <div class="mb-2">
-  <label class="form-label mb-1" for="@WebElementId">FileName</label>
+  <label class="form-label mb-1" for="@WebElementId">@(Resource.SearchField_FileField_FileName)</label>
   <div class="d-flex">
     <RadzenTextBox @bind-Value:get="FileNameValue" @bind-Value:set="OnFileNameChanged" data-search-target="filename" class="flex-grow-1"/>
     <RadzenDropDown TValue="MatchComparison" @bind-Value="Field.SearchFileNameComparison" data-search-target="filenamematch" Data="Items" />
@@ -11,7 +12,7 @@
 </div>
 
 <div>
-  <label class="form-label mb-1" for="@_fileSizeId">FileSize</label>
+  <label class="form-label mb-1" for="@_fileSizeId">@(Resource.SearchField_FileField_FileSize)</label>
   <div class="d-flex align-items-center">
     <RadzenNumeric TValue="decimal?" @bind-Value:get="@FileSizeMoreThanValue" @bind-Value:set="@OnFileSizeMoreThanChanged"
                    class="flex-grow-1" data-search-target="min"/>
