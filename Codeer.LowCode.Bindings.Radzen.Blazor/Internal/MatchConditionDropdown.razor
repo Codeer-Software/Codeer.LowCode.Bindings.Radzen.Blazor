@@ -7,8 +7,8 @@
 @code {
 
   private IEnumerable<KeyValuePair<MatchComparison, string>> Items => [
+    new KeyValuePair<MatchComparison, string>(MatchComparison.Like, Resource.SearchField_MatchCondition_Like),
     new KeyValuePair<MatchComparison, string>(MatchComparison.Equal, Resource.SearchField_MatchCondition_Equals),
-    new KeyValuePair<MatchComparison, string>(MatchComparison.Like, Resource.SearchField_MatchCondition_Like)
   ];
 
 
