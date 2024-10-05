@@ -33,8 +33,7 @@ namespace LowCodeApp.Designer
             ScriptRuntimeTypeManager.AddService(new MailService());
 
             BlazorRuntime.InstallBundleCss("LowCodeApp.Client.Shared");
-            BlazorRuntime.InstallContentCss("Radzen.Blazor", "/css/material-base.css");
-            BlazorRuntime.InstallContentScript("Radzen.Blazor", "/Radzen.Blazor.js");
+            BlazorRuntime.InstallAssemblyInitializer(typeof(RadzenInstaller).Assembly);
             BlazorRuntime.InstallRenderProvider(typeof(RadzenInstaller));
 
             IconCandidate.Icons.AddRange(LowCodeApp.Designer.Properties.Resources.bootstrap_icons
