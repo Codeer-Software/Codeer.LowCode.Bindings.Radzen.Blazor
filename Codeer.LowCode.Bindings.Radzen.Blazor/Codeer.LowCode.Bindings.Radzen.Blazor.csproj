@@ -7,7 +7,7 @@
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Description>You can use Radzen.Blazor with Codeer.LowCode.Blazor.</Description>
     <PackageProjectUrl>https://github.com/Codeer-Software/Codeer.LowCode.Bindings.Radzen.Blazor</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Codeer-Software/Codeer.LowCode.Bindings.Radzen.Blazor</RepositoryUrl>
@@ -20,11 +20,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Codeer.LowCode.Blazor" Version="1.0.35" />
-    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="8.0.4" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.4" />
+    <PackageReference Include="Codeer.LowCode.Blazor" Version="1.0.36" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.8" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
-    <PackageReference Include="Radzen.Blazor" Version="5.2.5" />
+    <PackageReference Include="Radzen.Blazor" Version="5.2.9" />
   </ItemGroup>
 
   <ItemGroup>

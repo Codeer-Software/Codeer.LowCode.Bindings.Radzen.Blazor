@@ -23,6 +23,7 @@ LowCodeApp.Client.Shared プロジェクトにNuGetから次のパッケージ�
 `Program.cs` に以下のコードを追加してください。
 
 ```csharp
+RadzenLoader.LoadAssemblies();
 builder.Services.AddRadzenComponents();
 ```
 
@@ -39,7 +40,7 @@ builder.Services.AddRadzenComponents();
 `Program.cs` に以下のコードを追加してください。
 
 ```csharp
-typeof(RadzenButtonFieldDesign).ToString();
+RadzenLoader.LoadAssemblies();
 ```
 
 #### LowCodeApp.Designer
@@ -47,6 +48,7 @@ typeof(RadzenButtonFieldDesign).ToString();
 `App.xaml.cs` に以下のコードを追加してください。
 
 ```csharp
+RadzenLoader.LoadAssemblies();
 Services.AddRadzenComponents();
 BlazorRuntime.InstallAssemblyInitializer(typeof(MudBlazorInstaller).Assembly);
 BlazorRuntime.InstallRenderProvider(typeof(RadzenInstaller));

@@ -20,6 +20,8 @@ namespace LowCodeApp.Designer
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            RadzenLoader.LoadAssemblies();
+
             Codeer.LowCode.Blazor.License.LicenseManager.IsAutoUpdate =
                 bool.TryParse(ConfigurationManager.AppSettings["IsLicenseAutoUpdate"], out var val) ? val : true;
 

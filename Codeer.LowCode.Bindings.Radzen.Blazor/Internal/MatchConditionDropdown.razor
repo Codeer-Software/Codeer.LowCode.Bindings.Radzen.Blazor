@@ -8,7 +8,7 @@
 
   private IEnumerable<KeyValuePair<MatchComparison, string>> Items => [
     new KeyValuePair<MatchComparison, string>(MatchComparison.Like, Resource.SearchField_MatchCondition_Like),
-    new KeyValuePair<MatchComparison, string>(MatchComparison.Equal, Resource.SearchField_MatchCondition_Equals),
+  new KeyValuePair<MatchComparison, string>(MatchComparison.Equal, Resource.SearchField_MatchCondition_Equals),
   ];
 
 
@@ -19,7 +19,7 @@
   public EventCallback<MatchComparison> MatchComparisonChanged { get; set; }
 
   [Parameter(CaptureUnmatchedValues = true)]
-  public Dictionary<string, object> AdditionalAttributes { get; set; }
+  public Dictionary<string, object> AdditionalAttributes { get; set; } = new();
 
   private async Task OnComparisonChange(MatchComparison value) {
     await MatchComparisonChanged.InvokeAsync(value);

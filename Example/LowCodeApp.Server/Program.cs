@@ -7,10 +7,9 @@ using LowCodeApp.Server.Services.FileManagement;
 using PdfSharp.Fonts;
 using System.Globalization;
 using System.Text.Json.Serialization;
-using Codeer.LowCode.Bindings.Radzen.Blazor.Designs;
+using Codeer.LowCode.Bindings.Radzen.Blazor.Installer;
 
-//load dll.
-typeof(RadzenButtonFieldDesign).ToString();
+RadzenLoader.LoadAssemblies();
 
 var builder = WebApplication.CreateBuilder(args);
 
