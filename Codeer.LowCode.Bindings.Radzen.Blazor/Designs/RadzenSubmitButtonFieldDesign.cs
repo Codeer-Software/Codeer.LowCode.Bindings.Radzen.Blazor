@@ -7,7 +7,7 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.Designs
     public class RadzenSubmitButtonFieldDesign : SubmitButtonFieldDesign
     {
         [Designer]
-        public RadzenVariant Variant { get; set; }
+        public new RadzenVariant Variant { get; set; }
 
         [Designer]
         public RadzenColor Color { get; set; }

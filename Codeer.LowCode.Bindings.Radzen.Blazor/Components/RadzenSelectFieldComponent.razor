@@ -15,7 +15,23 @@
 @code {
   private bool IsDisabled => Field.IsEnabled == false;
   private bool IsViewMode => Field.IsViewOnly;
-  private string? SelectedValue => Field.Value ?? string.Empty;
+  private string? _bugFixValue;
+  private string? SelectedValue
+  {
+    get
+    {
+      if (_bugFixValue != null)
+      {
+        //一度不具合回避用の文字列を返す
+        var ret = _bugFixValue;
+        _bugFixValue = null;
+        StateHasChanged();
+        return ret;
+      }
+      return Field.Value;
+    }
+  }
+
   private List<Data> ItemsSource => GetItemsSource();
   private string? ViewOnlyValue => Field.Services.AppInfoService.IsDesignMode ? "Select" : Field.DisplayText;
 
@@ -40,8 +56,11 @@
     await Field.SetValueAsync(value);
   }
 
-  private async Task OnFocus() {
-    await Field.OnFocusAsync();
+  private async Task OnFocus()
+  {
+    //ここで候補を変えた後、選択文字列が消えてしまう
+    //そのため一瞬候補外の文字列を設定して再度正しい値を設定するという手法を使う
+    if (await Field.OnFocusAsync()) _bugFixValue = Guid.NewGuid().ToString();
   }
 
   private record Data(string Text, string Value);
