@@ -1,6 +1,8 @@
 # Bindings.Radze.Blazor
 
-Codeer.LowCode.BlazorにRadzen Blazorコンポーネントを追加するためのライブラリです。
+[Codeer.LowCode.Blazor](https://github.com/Codeer-Software/Codeer.LowCode.Blazor.Manual/blob/main/JP/README.md)に[Radzen Blazor](https://github.com/radzenhq/radzen-blazor)コンポーネントを追加するためのライブラリです。
+
+[サンプル](https://lowcodedemo.azurewebsites.net/RadzenBlazor/RadzenBlazorHome)
 
 ## インストール
 
