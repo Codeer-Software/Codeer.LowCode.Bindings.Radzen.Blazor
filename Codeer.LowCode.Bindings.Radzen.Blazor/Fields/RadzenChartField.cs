@@ -37,6 +37,8 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.Fields
 
         public override bool IsModified => false;
 
+        public int Page => 0;
+
         [ScriptHide]
         public override async Task InitializeDataAsync(FieldDataBase? fieldDataBase)
         {
