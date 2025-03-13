@@ -16,7 +16,6 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>
     </PackageReleaseNotes>
-
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,6 +25,11 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
     <PackageReference Include="Radzen.Blazor" Version="5.2.9" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <StaticWebAssetFingerprintingEnabled>false</StaticWebAssetFingerprintingEnabled>
+    <StaticWebAssetsFingerprintContent>false</StaticWebAssetsFingerprintContent>
+  </PropertyGroup>
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Fields\IgGrid\IgbGridFieldComponent.razor" />
