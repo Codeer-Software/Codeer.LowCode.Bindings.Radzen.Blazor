@@ -94,3 +94,28 @@ Codeer.LowCode.Blazorの標準コントロールに対応するMudBlazorコン�
 データをグラフで表示するためのコントロールです。
 
 ![image](https://github.com/user-attachments/assets/f96e2de1-8c9e-40d3-8a5b-224036e0ec28)
+
+## 高度な使い方
+
+Radzen Blazor が必要としているJS/CSSは自動的に構成されるようになっていますが自動構成を無効にし手動構成にすることができます。
+自動的な構成を無効にする場合は、`index.html` などのBlazorが読み込まれるページの`<head>`に`<meta>`を追加してください。
+
+```html
+<head>
+  <meta name="Codeer.LowCode.Radzen.Blazor::autoload" content="false">
+</head>
+```
+
+これにより自動構成が無効になるため、JS/CSSを明示的に読み込む必要があります。
+Radzen Blazorのドキュメントに沿って`index.html` を編集してください。
+
+### CSSの動的読み込み
+
+特定のRazorページが表示されている間のみRadzen Blazor関連のCSSをロードさせることができます。
+Radzen Blazor関連のCSSを読み込みたいRazorファイル内で次のBlazorコンポーネントを追加してください。
+
+```html
+@using Codeer.LowCode.Blazor.Components.Primitives
+
+<StyleLoader Href="_content/Radzen.Blazor/css/material-base.css" />
+```
