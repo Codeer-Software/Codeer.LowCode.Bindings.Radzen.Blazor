@@ -7,7 +7,7 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components
     public class RadzenBooleanFieldDriver : ComponentBase
     {
         public RadzenToggleButtonDriver Toggle => ByCssSelector("button.rz-button.rz-toggle-button").Wait();
-        public IWebElement CheckBox => ByCssSelector(".rz-checkbox .rz-checkbox-box").Wait().Find();
+        public IWebElement CheckBox => ByCssSelector(".rz-chkbox .rz-chkbox-box").Wait().Find();
         public IWebElement Switch => ByCssSelector(".rz-switch .rz-switch-circle").Wait().Find();
         public IWebElement Label => ByTagName("label").Wait().Find();
         public IWebElement ReadOnlyText => ByTagName("span").Wait().Find();
@@ -25,7 +25,7 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components
             {
                 Toggle.Element.Click();
             }
-            else if (HasElement(".rz-checkbox .rz-checkbox-box"))
+            else if (HasElement(".rz-chkbox .rz-chkbox-box"))
             {
                 CheckBox.Click();
             }
@@ -41,9 +41,9 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components
             {
                 return Toggle.IsChecked;
             }
-            else if (HasElement(".rz-checkbox .rz-checkbox-box"))
+            else if (HasElement(".rz-chkbox .rz-chkbox-box"))
             {
-                return Element.FindElement(By.CssSelector(".rz-checkbox-box"))
+                return Element.FindElement(By.CssSelector(".rz-chkbox-box"))
                     .GetAttribute("class").Contains("rz-state-active");
             }
             else if (HasElement(".rz-switch"))
