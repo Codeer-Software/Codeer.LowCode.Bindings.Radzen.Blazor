@@ -30,7 +30,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
         writeDataControlsDetailPage.Detail.Check.Edit(true);
@@ -69,7 +69,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
@@ -109,7 +109,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
@@ -149,7 +149,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
@@ -190,7 +190,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
@@ -230,7 +230,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
@@ -272,7 +272,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
@@ -312,7 +312,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
@@ -354,7 +354,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
@@ -394,7 +394,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
@@ -434,7 +434,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
@@ -474,7 +474,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
@@ -514,7 +514,7 @@ public class 通常Field書き込みTest
         WebDriverManager.WaitLoading();
 
         //新規作成
-        writeDataControlsListPage.List.Create.Click();
+        writeDataControlsListPage.Create.Click();
         WebDriverManager.WaitLoading();
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
