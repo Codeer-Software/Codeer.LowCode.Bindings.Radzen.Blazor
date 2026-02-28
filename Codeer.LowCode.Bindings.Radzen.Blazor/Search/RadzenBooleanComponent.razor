@@ -1,11 +1,22 @@
 @using Microsoft.AspNetCore.Components.Web;
+@using Codeer.LowCode.Blazor.Repository.Design
 @inherits FieldComponentBase<BooleanField>
 
-<RadzenDropDown TValue="string" @bind-Value:get="Value" @bind-Value:set="@OnChange" id="@WebElementId" Data="Items" class="d-block"/>
+<RadzenDropDown TValue="string" @bind-Value:get="Value" @bind-Value:set="@OnChange" id="@WebElementId" Data="Items"
+                TextProperty="Key" ValueProperty="Value" class="d-block"/>
 
 @code {
   private string? Value => Field.SearchValue?.ToString();
-  private IEnumerable<string> Items => ["", "true", "false"];
+
+  private List<KeyValuePair<string, string>> Items => new()
+  {
+    new("", ""),
+    new(TrueText, "True"),
+    new(FalseText, "False"),
+  };
+
+  private string TrueText => string.IsNullOrEmpty(Field.Design.TrueText) ? "true" : Field.Services.AppInfoService.Localize(Field.Design.TrueText);
+  private string FalseText => string.IsNullOrEmpty(Field.Design.FalseText) ? "false" : Field.Services.AppInfoService.Localize(Field.Design.FalseText);
 
   private bool? TryParse(string? value) {
     if (string.IsNullOrWhiteSpace(value)) return null;

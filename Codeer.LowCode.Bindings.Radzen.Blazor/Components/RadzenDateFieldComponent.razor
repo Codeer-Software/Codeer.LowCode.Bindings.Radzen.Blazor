@@ -4,17 +4,33 @@
 @if (IsViewMode) {
   <span class="d-block py-2">@GetViewOnlyValue()</span>
 } else {
-  <RadzenDatePicker TValue="DateOnly?" @bind-Value:get="Field.Value" @bind-Value:set="@RaiseOnValueChanged" 
-                    Disabled="@IsDisabled" ReadOnly="IsViewMode" DateFormat="yyyy/MM/dd" class="d-block" Name="@WebElementId" />
+  if (Field.Design.IsYearMonthOnly) {
+    <input type="month" class="form-control" disabled="@IsDisabled" id="@WebElementId"
+           value="@GetYearMonthValue()" @onchange="@OnYearMonthInput" />
+  } else {
+    <RadzenDatePicker TValue="DateOnly?" @bind-Value:get="Field.Value" @bind-Value:set="@RaiseOnValueChanged"
+                      Disabled="@IsDisabled" ReadOnly="IsViewMode" DateFormat="yyyy/MM/dd" class="d-block" Name="@WebElementId" />
+  }
   <Validator IsValid="@Field.IsValid" ErrorMessage="@Field.ErrorText" />
 }
 
 @code {
   private bool IsDisabled => Field.IsEnabled == false;
   private bool IsViewMode => Field.IsViewOnly;
-  
+
   private async Task RaiseOnValueChanged(DateOnly? value) {
     await Field.SetValueAsync(value);
+  }
+
+  private string? GetYearMonthValue() => Field.Value?.ToString("yyyy-MM");
+
+  private async Task OnYearMonthInput(ChangeEventArgs e) {
+    var str = e.Value?.ToString();
+    if (string.IsNullOrEmpty(str)) {
+      await Field.SetValueAsync((DateOnly?)null);
+    } else if (DateOnly.TryParseExact(str + "-01", "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out var d)) {
+      await Field.SetValueAsync(d);
+    }
   }
 
   private string GetViewOnlyValue() {

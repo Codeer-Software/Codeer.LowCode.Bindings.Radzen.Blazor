@@ -3,9 +3,11 @@
 <div class="d-flex align-items-center">
   <RadzenDatePicker TValue="DateTime?" @bind-Value:get="@MoreThanValue" @bind-Value:set="@OnMoreThanChanged"
                     ShowTime="true" DateFormat="yyyy/MM/dd HH:mm" class="flex-grow-1" data-search-target="min"/>
-  <span>～</span>
-  <RadzenDatePicker TValue="DateTime?" @bind-Value:get="@LessThanValue" @bind-Value:set="@OnLessThanChanged"
-                    ShowTime="true" DateFormat="yyyy/MM/dd HH:mm" class="flex-grow-1" data-search-target="max"/>
+  @if (Field.Design.IsSimpleSearchParameter == false) {
+    <span>～</span>
+    <RadzenDatePicker TValue="DateTime?" @bind-Value:get="@LessThanValue" @bind-Value:set="@OnLessThanChanged"
+                      ShowTime="true" DateFormat="yyyy/MM/dd HH:mm" class="flex-grow-1" data-search-target="max"/>
+  }
 </div>
 
 @code {

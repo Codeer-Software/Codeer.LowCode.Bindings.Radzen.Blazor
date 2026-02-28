@@ -22,7 +22,7 @@
     {
       if (_bugFixValue != null)
       {
-        //ˆê“x•s‹ï‡‰ñ”ð—p‚Ì•¶Žš—ñ‚ð•Ô‚·
+        //ï¿½ï¿½xï¿½sï¿½ï‡ï¿½ï¿½ï¿½pï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½
         var ret = _bugFixValue;
         _bugFixValue = null;
         StateHasChanged();
@@ -45,7 +45,7 @@
       ? [new("", "")]
       : [];
 
-    return emptyItems.Concat(Field.DisplayTextAndValue.Select(x => new Data(x.Key, x.Value))).ToList();
+    return emptyItems.Concat(Field.DisplayTextAndValue.Select(x => new Data(Field.Services.AppInfoService.Localize(x.Key), x.Value))).ToList();
   }
 
   private async Task OnChange(string? value) {
@@ -58,8 +58,8 @@
 
   private async Task OnFocus()
   {
-    //‚±‚±‚ÅŒó•â‚ð•Ï‚¦‚½ŒãA‘I‘ð•¶Žš—ñ‚ªÁ‚¦‚Ä‚µ‚Ü‚¤
-    //‚»‚Ì‚½‚ßˆêuŒó•âŠO‚Ì•¶Žš—ñ‚ðÝ’è‚µ‚ÄÄ“x³‚µ‚¢’l‚ðÝ’è‚·‚é‚Æ‚¢‚¤Žè–@‚ðŽg‚¤
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ÅŒï¿½ï¿½ï¿½Ï‚ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Iï¿½ð•¶Žï¿½ï¿½ñ‚ªï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½
+    //ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ßˆï¿½uï¿½ï¿½ï¿½Oï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý’è‚µï¿½ÄÄ“xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½Ý’è‚·ï¿½ï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½gï¿½ï¿½
     if (await Field.OnFocusAsync()) _bugFixValue = Guid.NewGuid().ToString();
   }
 

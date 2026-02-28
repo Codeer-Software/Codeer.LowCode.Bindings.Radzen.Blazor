@@ -3,8 +3,10 @@
 
 <div class="d-flex align-items-center">
     <RadzenNumeric TValue="decimal?" @bind-Value:get="@MoreThanValue" @bind-Value:set="@OnMoreThanChanged" class="flex-grow-1" data-search-target="min" />
-  <span>～</span>
+  @if (Field.Design.IsSimpleSearchParameter == false) {
+    <span>～</span>
     <RadzenNumeric TValue="decimal?" @bind-Value:get="@LessThanValue" @bind-Value:set="@OnLessThanChanged" class="flex-grow-1" data-search-target="max" />
+  }
 </div>
 
 @code {

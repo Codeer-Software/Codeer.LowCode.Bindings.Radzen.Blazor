@@ -5,7 +5,9 @@
 
 <div class="d-flex">
   <RadzenTextBox @bind-Value:get="Value" @bind-Value:set="OnChange" class="flex-grow-1"/>
-  <MatchConditionDropdown @bind-MatchComparison:get="Comparison" @bind-MatchComparison:set="@OnComparisonChange" />
+  @if (Field.Design.IsSimpleSearchParameter == false) {
+    <MatchConditionDropdown @bind-MatchComparison:get="Comparison" @bind-MatchComparison:set="@OnComparisonChange" />
+  }
 </div>
 
 @code {

@@ -14,10 +14,12 @@
                       ValueProperty="@("Value")" TextProperty="@("Key")" Data="@ItemsSource" AllowClear="true" class="d-block"/>
     }
   </div>
-  <div>
-    <RadzenToggleButton TValue="bool" @bind-Value:get="@Field.IsInverted" @bind-Value:set="@OnChangeFlag" Name="@WebElementId" Text="Not"
-                        Shade="Shade.Light" ToggleShade="Shade.Darker"/>
-  </div>
+  @if (Field.Design.IsSimpleSearchParameter == false) {
+    <div>
+      <RadzenToggleButton TValue="bool" @bind-Value:get="@Field.IsInverted" @bind-Value:set="@OnChangeFlag" Name="@WebElementId" Text="Not"
+                          Shade="Shade.Light" ToggleShade="Shade.Darker"/>
+    </div>
+  }
 </div>
 
 @code {
@@ -44,6 +46,10 @@
 
   private async Task OnChangeFlag(bool isChecked) {
     await Field.SetNotFlag(isChecked);
+  }
+
+  private async Task OnFocus() {
+    await Field.OnFocusAsync();
   }
 
 }

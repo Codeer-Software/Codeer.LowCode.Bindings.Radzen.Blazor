@@ -1,6 +1,5 @@
 using Codeer.LowCode.Blazor.Components.AppParts.Loading;
 using Codeer.LowCode.Blazor.Components.AppParts.PageFrame;
-using Codeer.LowCode.Blazor.Components.Dialog;
 using Codeer.LowCode.Blazor.RequestInterfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Sotsera.Blazor.Toaster.Core.Models;
@@ -17,8 +16,6 @@ namespace LowCodeApp.Client.Shared.Services
             services.AddScoped<IUIService, UIService>();
             services.AddScoped<Codeer.LowCode.Blazor.RequestInterfaces.Services>();
             services.AddScoped<ILogger, Logger>();
-            services.AddSingleton<ModuleDialogService>();
-            services.AddSingleton<MessageBoxService>();
             services.AddSingleton<LoadingService>();
             services.AddSingleton<PageFrameContext>();
             services.AddToaster(config =>

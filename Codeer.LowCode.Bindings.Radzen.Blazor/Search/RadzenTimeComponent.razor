@@ -4,9 +4,11 @@
 <div class="d-flex align-items-center">
   <RadzenDatePicker TValue="TimeOnly?" @bind-Value:get="@MoreThanValue" @bind-Value:set="@OnMoreThanChanged"
                     ShowTime="true" TimeOnly="true" DateFormat="HH:mm" class="flex-grow-1" data-search-target="min" />
-  <span>～</span>
-  <RadzenDatePicker TValue="TimeOnly?" @bind-Value:get="@LessThanValue" @bind-Value:set="@OnLessThanChanged"
-                    ShowTime="true" TimeOnly="true" DateFormat="HH:mm" class="flex-grow-1" data-search-target="max" />
+  @if (Field.Design.IsSimpleSearchParameter == false) {
+    <span>～</span>
+    <RadzenDatePicker TValue="TimeOnly?" @bind-Value:get="@LessThanValue" @bind-Value:set="@OnLessThanChanged"
+                      ShowTime="true" TimeOnly="true" DateFormat="HH:mm" class="flex-grow-1" data-search-target="max" />
+  }
 </div>
 
 @code {

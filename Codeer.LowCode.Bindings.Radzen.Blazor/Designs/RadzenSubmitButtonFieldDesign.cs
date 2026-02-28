@@ -4,6 +4,7 @@ using Codeer.LowCode.Blazor.Repository.Design;
 
 namespace Codeer.LowCode.Bindings.Radzen.Blazor.Designs
 {
+    [IgnoreBaseProperties(nameof(ImageResourceSet))]
     public class RadzenSubmitButtonFieldDesign : SubmitButtonFieldDesign
     {
         [Designer]

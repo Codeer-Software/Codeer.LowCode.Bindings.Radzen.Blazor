@@ -1,9 +1,36 @@
-@inherits FieldComponentBase<RadioGroupField>
+@using Codeer.LowCode.Blazor.Repository.Design
+@using Codeer.LowCode.Blazor.OperatingModel
+@using global::Radzen
+@using global::Radzen.Blazor
+@using Codeer.LowCode.Bindings.Radzen.Blazor.Internal.Components
+@inherits RadzenFieldComponentBase<RadioGroupField, RadzenRadioGroupFieldDesign>
 
-<span class="d-block py-2">
-  @ViewOnlyValue
-</span>
+@if (Field.ModuleLayoutType == ModuleLayoutType.List && Field.Design.PopulateRadioButtons) {
+  <div class="py-2">
+    <RadzenRadioButtonList TValue="string" @bind-Value:get="@Field.Value" @bind-Value:set="@OnChange"
+                           Disabled="@(IsDisabled || IsViewMode)" Orientation="Orientation.Horizontal">
+      <Items>
+        @foreach (var item in Items) {
+          <RadzenRadioButtonListItem TValue="string" Text="@Field.Services.AppInfoService.Localize(item.Design.Text)" Value="@item.Design.Value" />
+        }
+      </Items>
+    </RadzenRadioButtonList>
+    <Validator IsValid="@Field.IsValid" ErrorMessage="@Field.ErrorText" />
+  </div>
+} else {
+  <span class="d-block py-2 text">
+    @ViewOnlyValue
+  </span>
+}
 
 @code {
+  private bool IsDisabled => Field.IsEnabled == false;
+  private bool IsViewMode => Field.IsViewOnly;
   private object? ViewOnlyValue => Field.Services.AppInfoService.IsDesignMode ? "RadioGroup" : Field.Value;
+
+  private IEnumerable<RadioButtonField> Items => Field.Module.GetFields().OfType<RadioButtonField>().Where(radio => radio.Design.GroupField == Field.Design.Name).ToList();
+
+  private async Task OnChange(string? value) {
+    if (value != null) await Field.SetValueAsync(value);
+  }
 }

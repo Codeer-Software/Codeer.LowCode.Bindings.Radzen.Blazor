@@ -1,7 +1,7 @@
-﻿using Selenium.StandardControls;
+using Selenium.StandardControls;
 using OpenQA.Selenium;
 
-namespace Codeer.LowCode.Bindings.MudBlazor.SeleniumDrivers.Native
+namespace Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Native
 {
     public class RadzenRadioButtonDriver(IWebElement element) : ControlDriverBase(element)
     {

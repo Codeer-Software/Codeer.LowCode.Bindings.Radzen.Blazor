@@ -36,14 +36,14 @@
 @code {
 
   private bool _isModalOpen;
-  private SearchCondition Conditions => Field.GetSearchConditionAssignedValue();
+  private SearchCondition? Conditions => Field.GetSearchConditionAssignedValue();
 
   private bool IsSelectOnly => !string.IsNullOrEmpty(Field.Design.DisplayTextVariable);
   private bool IsDisabled => Field.IsEnabled == false;
   private string? Value => Field.SearchValue;
   private bool HasValue => Value != null;
-  private string DisplayText => Field.DisplayText;
-  
+  private string? DisplayText => Field.DisplayText;
+
   [Parameter] public SearchCondition? SearchConditions { get; set; }
 
   protected override async Task OnParametersSetAsync()
@@ -55,17 +55,28 @@
     }
   }
 
-  private void OpenModal() => _isModalOpen = true;
+  private async Task OpenModal()
+  {
+    if (!string.IsNullOrEmpty(Field.Design.OnSearchButtonClicked))
+    {
+      await Field.Module.ExecuteScriptAsync(Field.Design.OnSearchButtonClicked);
+      return;
+    }
+
+    await Task.CompletedTask;
+    if (Field.GetSearchConditionAssignedValue() != null) _isModalOpen = true;
+  }
 
   private void CloseModal() => _isModalOpen = false;
 
   private async void OnItemSelected(Module obj)
   {
+    if (obj == null) return;
+    CloseModal();
     // ここはValueVariableの値じゃないとあかん
     await Field.SetSearchValueAsync(LinkField.GetLinkValue(Field.Design, obj));
     // こっちはDisplayTextVariableの値
     Field.DisplayText = LinkField.GetLinkDisplayText(Field.Design, obj);
-    CloseModal();
   }
 
   private async void Clear()

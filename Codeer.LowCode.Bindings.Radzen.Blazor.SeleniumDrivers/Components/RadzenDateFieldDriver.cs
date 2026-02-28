@@ -8,6 +8,7 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components
     public class RadzenDateFieldDriver : ComponentBase
     {
         public RadzenDateDriver Input => ByCssSelector(".rz-datepicker > input").Wait().Find<RadzenDateDriver>();
+        public TextBoxDriver MonthInput => ByCssSelector("input[type='month']").Wait();
         public IWebElement ReadOnlyText => ByTagName("span").Wait().Find();
         public RadzenDateFieldDriver(IWebElement element) : base(element) { }
         public static implicit operator RadzenDateFieldDriver(ElementFinder finder) => finder.Find<RadzenDateFieldDriver>();

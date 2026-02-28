@@ -4,7 +4,7 @@ using Codeer.LowCode.Blazor.Repository.Design;
 
 namespace Codeer.LowCode.Bindings.Radzen.Blazor.Designs
 {
-    [IgnoreBaseProperties(nameof(Variant))]
+    [IgnoreBaseProperties(nameof(Variant), nameof(ImageResourceSet), nameof(ShowTextInToolTip))]
     public class RadzenButtonFieldDesign: ButtonFieldDesign
     {
         public RadzenButtonFieldDesign() => TypeFullName = typeof(RadzenButtonFieldDesign).FullName!;

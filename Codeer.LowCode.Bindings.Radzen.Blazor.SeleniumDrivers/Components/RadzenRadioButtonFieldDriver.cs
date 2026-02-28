@@ -1,4 +1,4 @@
-using Codeer.LowCode.Bindings.MudBlazor.SeleniumDrivers.Native;
+using Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Native;
 using OpenQA.Selenium;
 using Selenium.StandardControls.PageObjectUtility;
 
