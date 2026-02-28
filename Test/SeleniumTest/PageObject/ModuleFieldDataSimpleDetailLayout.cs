@@ -1,3 +1,4 @@
+using Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components;
 using Codeer.LowCode.Blazor.SeleniumDrivers;
 using OpenQA.Selenium;
 using Selenium.StandardControls;
@@ -8,7 +9,7 @@ namespace SeleniumTest.PageObject
 {
     public class ModuleFieldDataSimpleDetailLayout : ComponentBase
     {
-        public TextFieldDriver Text => ByCssSelector("div[data-name='Text']").Wait();
+        public RadzenTextFieldDriver Text => ByCssSelector("div[data-name='Text']").Wait();
 
         public ModuleFieldDataSimpleDetailLayout(IWebElement element) : base(element) { }
 

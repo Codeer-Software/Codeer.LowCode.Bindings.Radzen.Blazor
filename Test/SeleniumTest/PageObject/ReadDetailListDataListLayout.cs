@@ -1,3 +1,4 @@
+using Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components;
 using Codeer.LowCode.Blazor.SeleniumDrivers;
 using OpenQA.Selenium;
 using Selenium.StandardControls;
@@ -8,7 +9,7 @@ namespace SeleniumTest.PageObject
 {
     public class ReadDetailListDataListLayout : ListLayoutBase
     {
-        public TextFieldDriver Code => ByCssSelector("td[data-name='Code']").Wait();
+        public RadzenTextFieldDriver Code => ByCssSelector("td[data-name='Code']").Wait();
 
         public ReadDetailListDataListLayout(IWebElement element) : base(element) { }
 

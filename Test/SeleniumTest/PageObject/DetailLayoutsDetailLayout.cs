@@ -11,10 +11,10 @@ namespace SeleniumTest.PageObject
     {
         public GridDriver GridGrid => ByCssSelector("div[data-name='Grid']").Wait();
         public TabDriver TabTab => ByCssSelector("div[data-name='Tab']").Wait();
-        public TextFieldDriver Text => ByCssSelector("div[data-name='Text']").Wait();
+        public RadzenTextFieldDriver Text => ByCssSelector("div[data-name='Text']").Wait();
         public RadzenDateFieldDriver Date => ByCssSelector("div[data-name='Date']").Wait();
         public RadzenDateTimeFieldDriver DateTime => ByCssSelector("div[data-name='DateTime']").Wait();
-        public NumberFieldDriver Number => ByCssSelector("div[data-name='Number']").Wait();
+        public RadzenNumberFieldDriver Number => ByCssSelector("div[data-name='Number']").Wait();
 
         public DetailLayoutsDetailLayout(IWebElement element) : base(element) { }
 

@@ -1,3 +1,4 @@
+using Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components;
 using Codeer.LowCode.Blazor.SeleniumDrivers;
 using OpenQA.Selenium;
 using Selenium.StandardControls;
@@ -8,7 +9,7 @@ namespace SeleniumTest.PageObject
 {
     public class ModuleEventListLayout : ListLayoutBase
     {
-        public BooleanFieldDriver Boolean => ByCssSelector("td[data-name='Boolean']").Wait();
+        public RadzenBooleanFieldDriver Boolean => ByCssSelector("td[data-name='Boolean']").Wait();
         public LabelFieldDriver LabelResult => ByCssSelector("td[data-name='LabelResult']").Wait();
 
         public ModuleEventListLayout(IWebElement element) : base(element) { }

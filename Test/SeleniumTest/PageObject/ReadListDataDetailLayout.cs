@@ -1,3 +1,4 @@
+using Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components;
 using Codeer.LowCode.Blazor.SeleniumDrivers;
 using OpenQA.Selenium;
 using Selenium.StandardControls;
@@ -9,7 +10,7 @@ namespace SeleniumTest.PageObject
     public class ReadListDataDetailLayout : ComponentBase
     {
         public LabelFieldDriver CodeLabel => ByCssSelector("div[data-name='CodeLabel']").Wait();
-        public TextFieldDriver Code => ByCssSelector("div[data-name='Code']").Wait();
+        public RadzenTextFieldDriver Code => ByCssSelector("div[data-name='Code']").Wait();
         public SearchFieldDriver<ReadListDataControlsSearchLayout> Search => ByCssSelector("div[data-name='Search']").Wait();
         public ListFieldDriver<ReadListDataControlsListLayout> List => ByCssSelector("div[data-name='List']").Wait();
         public SubmitButtonFieldDriver SubmitButton => ByCssSelector("div[data-name='SubmitButton']").Wait();

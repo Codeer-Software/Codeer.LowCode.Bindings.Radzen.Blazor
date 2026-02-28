@@ -1,3 +1,4 @@
+using Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components;
 using Codeer.LowCode.Blazor.SeleniumDrivers;
 using OpenQA.Selenium;
 using Selenium.StandardControls;
@@ -8,7 +9,7 @@ namespace SeleniumTest.PageObject
 {
     public class WriteTileListDataListLayout : ListLayoutBase
     {
-        public TextFieldDriver Name => ByCssSelector("td[data-name='Name']").Wait();
+        public RadzenTextFieldDriver Name => ByCssSelector("td[data-name='Name']").Wait();
 
         public WriteTileListDataListLayout(IWebElement element) : base(element) { }
 

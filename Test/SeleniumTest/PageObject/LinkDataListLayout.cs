@@ -1,3 +1,4 @@
+using Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components;
 using Codeer.LowCode.Blazor.SeleniumDrivers;
 using OpenQA.Selenium;
 using Selenium.StandardControls;
@@ -8,8 +9,8 @@ namespace SeleniumTest.PageObject
 {
     public class LinkDataListLayout : ListLayoutBase
     {
-        public TextFieldDriver Code => ByCssSelector("td[data-name='Code']").Wait();
-        public TextFieldDriver Name => ByCssSelector("td[data-name='Name']").Wait();
+        public RadzenTextFieldDriver Code => ByCssSelector("td[data-name='Code']").Wait();
+        public RadzenTextFieldDriver Name => ByCssSelector("td[data-name='Name']").Wait();
 
         public LinkDataListLayout(IWebElement element) : base(element) { }
 

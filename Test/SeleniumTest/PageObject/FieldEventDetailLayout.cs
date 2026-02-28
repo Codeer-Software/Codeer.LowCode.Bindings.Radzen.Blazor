@@ -11,19 +11,19 @@ namespace SeleniumTest.PageObject
     {
         public LabelFieldDriver LabelReult => ByCssSelector("div[data-name='LabelReult']").Wait();
         public AnchorTagFieldDriver AnchorTag => ByCssSelector("div[data-name='AnchorTag']").Wait();
-        public BooleanFieldDriver Boolean => ByCssSelector("div[data-name='Boolean']").Wait();
+        public RadzenBooleanFieldDriver Boolean => ByCssSelector("div[data-name='Boolean']").Wait();
         public ButtonFieldDriver Button => ByCssSelector("div[data-name='Button']").Wait();
         public RadzenDateFieldDriver Date => ByCssSelector("div[data-name='Date']").Wait();
         public RadzenDateTimeFieldDriver DateTime => ByCssSelector("div[data-name='DateTime']").Wait();
         public RadzenFileFieldDriver File => ByCssSelector("div[data-name='File']").Wait();
         public IdFieldDriver Id1 => ByCssSelector("div[data-name='Id1']").Wait();
         public RadzenLinkFieldDriver<LinkDataListLayout, LinkDataSearchLayout> Link => ByCssSelector("div[data-name='Link']").Wait();
-        public NumberFieldDriver Number => ByCssSelector("div[data-name='Number']").Wait();
+        public RadzenNumberFieldDriver Number => ByCssSelector("div[data-name='Number']").Wait();
         public PasswordFieldDriver Password => ByCssSelector("div[data-name='Password']").Wait();
         public RadzenRadioButtonFieldDriver RadioButtonA => ByCssSelector("div[data-name='RadioButtonA']").Wait();
         public RadzenRadioButtonFieldDriver RadioButtonB => ByCssSelector("div[data-name='RadioButtonB']").Wait();
         public RadzenSelectFieldDriver Select => ByCssSelector("div[data-name='Select']").Wait();
-        public TextFieldDriver Text => ByCssSelector("div[data-name='Text']").Wait();
+        public RadzenTextFieldDriver Text => ByCssSelector("div[data-name='Text']").Wait();
         public RadzenTimeFieldDriver Time => ByCssSelector("div[data-name='Time']").Wait();
         public ModuleFieldDriver<ModuleFieldDataSimpleDetailLayout> Module => ByCssSelector("div[data-name='Module']").Wait();
         public DetailListFieldDriver<WriteDataControlsDetailLayout> DetailList => ByCssSelector("div[data-name='DetailList']").Wait();

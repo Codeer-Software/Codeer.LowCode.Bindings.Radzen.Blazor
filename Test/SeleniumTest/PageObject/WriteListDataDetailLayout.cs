@@ -1,3 +1,4 @@
+using Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Components;
 using Codeer.LowCode.Blazor.SeleniumDrivers;
 using OpenQA.Selenium;
 using Selenium.StandardControls;
@@ -9,7 +10,7 @@ namespace SeleniumTest.PageObject
     public class WriteListDataDetailLayout : ComponentBase
     {
         public LabelFieldDriver NameLabel => ByCssSelector("div[data-name='NameLabel']").Wait();
-        public TextFieldDriver Name => ByCssSelector("div[data-name='Name']").Wait();
+        public RadzenTextFieldDriver Name => ByCssSelector("div[data-name='Name']").Wait();
         public ListFieldDriver<WriteListDataControlsListLayout> List => ByCssSelector("div[data-name='List']").Wait();
         public SubmitButtonFieldDriver SubmitButton => ByCssSelector("div[data-name='SubmitButton']").Wait();
 
