@@ -235,7 +235,7 @@ public class 通常Field書き込みTest
 
         var writeDataControlsDetailPage = _driver.AttachWriteDataControlsDetailPage();
         writeDataControlsDetailPage.Detail.Link.Search.Click();
-        writeDataControlsDetailPage.Detail.Link.LinkList.Items.GetItem(1).Element.Click();
+        writeDataControlsDetailPage.Detail.Link.LinkList.Items.GetItem(1).Element.DoubleClick();
         writeDataControlsDetailPage.Detail.Submit.Submit.Click();
         WebDriverManager.WaitLoading();
         writeDataControlsDetailPage.Detail.Link.Input.Text.Is("BBB");
@@ -252,7 +252,7 @@ public class 通常Field書き込みTest
         var writeDataControlsDetailPage2 = _driver.AttachWriteDataControlsDetailPage();
         WebDriverManager.WaitLoading();
         writeDataControlsDetailPage2.Detail.Link.Search.Click();
-        writeDataControlsDetailPage2.Detail.Link.LinkList.Items.GetItem(0).Element.Click();
+        writeDataControlsDetailPage2.Detail.Link.LinkList.Items.GetItem(0).Element.DoubleClick();
         writeDataControlsDetailPage2.Detail.Submit.Submit.Click();
         WebDriverManager.WaitLoading();
         writeDataControlsDetailPage2.Detail.Link.Input.Text.Is("CCC");

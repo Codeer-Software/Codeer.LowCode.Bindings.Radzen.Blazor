@@ -14,9 +14,13 @@ namespace Codeer.LowCode.Bindings.Radzen.Blazor.SeleniumDrivers.Search
         public ButtonDriver Search => ByCssSelector(".rz-stack > button.rz-button-icon-only").Wait();
         public IWebElement ReadOnlyText => ByTagName("span").Wait().Find();
         public SearchFieldDriver<TSearchLayout> LinkSearch => ByCssSelector("div[data-system='search-field']").Wait();
-        public ListFieldDriver<TListLayout> LinkList => ByCssSelector("div[data-system='list-field']").Wait();
+        public ListFieldDriver<TListLayout> LinkList => GetModal().ByCssSelector("div[data-system='list-field']").Wait();
         public RadzenLinkFieldSearchDriver(IWebElement element) : base(element) { }
         public static implicit operator RadzenLinkFieldSearchDriver<TListLayout, TSearchLayout>(ElementFinder finder) =>
             finder.Find<RadzenLinkFieldSearchDriver<TListLayout, TSearchLayout>>();
+        private ElementFinder GetModal()
+        {
+            return new ElementFinder(base.Element.FindElement(By.XPath("/html/body")).FindElement(By.CssSelector("div.modal.show")));
+        }
     }
 }

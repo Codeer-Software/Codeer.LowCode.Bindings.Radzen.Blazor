@@ -259,7 +259,7 @@ public class ListField書き込み
         writeListDataDetailPage.Detail.List.Create.Click();
         writeListDataDetailPage.Detail.List.Items.GetItem(0).Link.Search.Click();
         // TODO ↓ でNG
-        writeListDataDetailPage.Detail.List.Items.GetItem(0).Link.LinkList.Items.GetItem(1).Element.Click();
+        writeListDataDetailPage.Detail.List.Items.GetItem(0).Link.LinkList.Items.GetItem(1).Element.DoubleClick();
         writeListDataDetailPage.Detail.SubmitButton.Submit.Click();
         WebDriverManager.WaitLoading();
         writeListDataDetailPage.Detail.List.Items.GetItem(0).Link.Input.Text.Is("BBB");
@@ -277,7 +277,7 @@ public class ListField書き込み
         writeListDataDetailPage2.Detail.List.Items.GetItem(0).Link.Input.Text.Is("BBB");
 
         writeListDataDetailPage2.Detail.List.Items.GetItem(0).Link.Search.Click();
-        writeListDataDetailPage2.Detail.List.Items.GetItem(0).Link.LinkList.Items.GetItem(2).Element.Click();
+        writeListDataDetailPage2.Detail.List.Items.GetItem(0).Link.LinkList.Items.GetItem(2).Element.DoubleClick();
         writeListDataDetailPage2.Detail.SubmitButton.Submit.Click();
         WebDriverManager.WaitLoading();
         writeListDataDetailPage2.Detail.List.Items.GetItem(0).Link.Input.Text.Is("AAA");
