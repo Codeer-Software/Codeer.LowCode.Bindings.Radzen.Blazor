@@ -1,7 +1,5 @@
-div[style*="--background:"] {
-    background: var(--background);
-}
-
-div[style*="--foreground:"] label {
-    color: var(--foreground);
+::deep label,
+::deep button {
+    background: inherit;
+    color: inherit;
 }

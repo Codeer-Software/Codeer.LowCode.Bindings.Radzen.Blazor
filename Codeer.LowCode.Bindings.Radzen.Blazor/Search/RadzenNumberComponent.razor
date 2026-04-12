@@ -2,10 +2,10 @@
 @inherits FieldComponentBase<NumberField>
 
 <div class="d-flex align-items-center">
-    <RadzenNumeric TValue="decimal?" @bind-Value:get="@MoreThanValue" @bind-Value:set="@OnMoreThanChanged" class="flex-grow-1" data-search-target="min" />
+    <RadzenNumeric TValue="decimal?" @bind-Value:get="@MoreThanValue" @bind-Value:set="@OnMoreThanChanged" class="flex-grow-1" data-search-target="min" Style="@Field.GetStyleString()" />
   @if (Field.Design.IsSimpleSearchParameter == false) {
     <span>～</span>
-    <RadzenNumeric TValue="decimal?" @bind-Value:get="@LessThanValue" @bind-Value:set="@OnLessThanChanged" class="flex-grow-1" data-search-target="max" />
+    <RadzenNumeric TValue="decimal?" @bind-Value:get="@LessThanValue" @bind-Value:set="@OnLessThanChanged" class="flex-grow-1" data-search-target="max" Style="@Field.GetStyleString()" />
   }
 </div>
 

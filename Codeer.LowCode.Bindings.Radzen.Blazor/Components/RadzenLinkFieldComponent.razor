@@ -6,17 +6,17 @@
 @inherits RadzenFieldComponentBase<LinkField, RadzenLinkFieldDesign>
 
 @if (IsViewMode) {
-  <span class="d-block py-2">@ViewOnlyValue</span>
+  <span class="d-block py-2" style="@Field.GetStyleString()">@ViewOnlyValue</span>
 } else {
-  <div>
+  <div style="@Field.GetStyleString()">
     <RadzenStack Orientation="Orientation.Horizontal" Gap="2">
-      <RadzenFormField Variant="Variant.Outlined" class="flex-grow-1">
+      <RadzenFormField Variant="Variant.Outlined" class="flex-grow-1" Style="@Field.GetStyleString()">
         <ChildContent>
           @if (IsSelectOnly) {
-            <RadzenTextBox Value="@DisplayText" Disabled="@IsDisabled" ReadOnly="true" Name="@WebElementId"/>
+            <RadzenTextBox Value="@DisplayText" Disabled="@IsDisabled" ReadOnly="true" Name="@WebElementId" Style="@Field.GetStyleString()"/>
           } else {
             <RadzenTextBox T="string?" @bind-Value:get="@DisplayText" @bind-Value:set="RaiseOnValueChanged"
-                           Disabled="@IsDisabled" class="flex-grow-1" Name="@WebElementId"/>
+                           Disabled="@IsDisabled" class="flex-grow-1" Name="@WebElementId" Style="@Field.GetStyleString()"/>
           }
         </ChildContent>
         <End>

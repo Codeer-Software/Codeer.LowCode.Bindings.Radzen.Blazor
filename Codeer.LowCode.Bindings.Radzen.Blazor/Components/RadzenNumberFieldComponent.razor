@@ -2,16 +2,16 @@
 @inherits RadzenFieldComponentBase<NumberField, RadzenNumberFieldDesign>
 
 @if (IsViewMode) {
-  <span class="d-block py-2">@GetViewOnlyValue()</span>
+  <span class="d-block py-2" style="@Field.GetStyleString()">@GetViewOnlyValue()</span>
 } else {
   if (Field.Design.IsSlider) {
     <RadzenSlider TValue="decimal" @bind-Value:get="@SliderValue" @bind-Value:set="@OnSliderChanged"
                   Min="@(Min ?? 0)" Max="@(Max ?? 100)" Step="@(Field.Design.Step?.ToString() ?? "1")"
-                  Disabled="@IsDisabled" class="d-block w-100" />
+                  Disabled="@IsDisabled" class="d-block w-100" Style="@Field.GetStyleString()" />
   } else {
     <RadzenNumeric TValue="decimal?" @bind-Value:get="@Field.Value" @bind-Value:set="@RaiseOnValueChanged" Name="@WebElementId"
                    Disabled="@IsDisabled" ReadOnly="IsViewMode" Placeholder="@Placeholder" Max="@Max" Min="@Min"
-                   Step="@(Field.Design.Step?.ToString() ?? "any")" class="d-block" />
+                   Step="@(Field.Design.Step?.ToString() ?? "any")" class="d-block" Style="@Field.GetStyleString()" />
   }
   <Validator IsValid="@Field.IsValid" ErrorMessage="@Field.ErrorText" />
 }

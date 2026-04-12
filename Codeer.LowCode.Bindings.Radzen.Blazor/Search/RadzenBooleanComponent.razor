@@ -3,7 +3,7 @@
 @inherits FieldComponentBase<BooleanField>
 
 <RadzenDropDown TValue="string" @bind-Value:get="Value" @bind-Value:set="@OnChange" id="@WebElementId" Data="Items"
-                TextProperty="Key" ValueProperty="Value" class="d-block"/>
+                TextProperty="Key" ValueProperty="Value" class="d-block" Style="@Field.GetStyleString()"/>
 
 @code {
   private string? Value => Field.SearchValue?.ToString();

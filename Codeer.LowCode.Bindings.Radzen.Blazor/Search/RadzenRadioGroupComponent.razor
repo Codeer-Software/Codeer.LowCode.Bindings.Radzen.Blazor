@@ -8,10 +8,10 @@
   <div>
     @if (Field.Design.AllowOrSearch) {
       <RadzenDropDown TValue="IEnumerable<string>" @bind-Value:get="@SelectedValues" @bind-Value:set="@OnChangeItems"
-                      ValueProperty="@("Value")" TextProperty="@("Key")" Data="@ItemsSource" AllowClear="true" Multiple="true" class="d-block"/>
+                      ValueProperty="@("Value")" TextProperty="@("Key")" Data="@ItemsSource" AllowClear="true" Multiple="true" class="d-block" Style="@Field.GetStyleString()"/>
     } else {
       <RadzenDropDown TValue="string" @bind-Value:get="@SelectedValue" @bind-Value:set="@OnChange"
-                      ValueProperty="@("Value")" TextProperty="@("Key")" Data="@ItemsSource" AllowClear="true" class="d-block"/>
+                      ValueProperty="@("Value")" TextProperty="@("Key")" Data="@ItemsSource" AllowClear="true" class="d-block" Style="@Field.GetStyleString()"/>
     }
   </div>
   @if (Field.Design.IsSimpleSearchParameter == false) {

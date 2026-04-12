@@ -7,7 +7,7 @@
 <div class="mb-2">
   <label class="form-label mb-1" for="@WebElementId">@(Resource.SearchField_FileField_FileName)</label>
   <div class="d-flex">
-    <RadzenTextBox @bind-Value:get="FileNameValue" @bind-Value:set="OnFileNameChanged" data-search-target="filename" class="flex-grow-1"/>
+    <RadzenTextBox @bind-Value:get="FileNameValue" @bind-Value:set="OnFileNameChanged" data-search-target="filename" class="flex-grow-1" Style="@Field.GetStyleString()"/>
     <MatchConditionDropdown @bind-MatchComparison="Field.SearchFileNameComparison" data-search-target="filenamematch"/>
   </div>
 </div>
@@ -16,10 +16,10 @@
   <label class="form-label mb-1" for="@_fileSizeId">@(Resource.SearchField_FileField_FileSize)</label>
   <div class="d-flex align-items-center">
     <RadzenNumeric TValue="decimal?" @bind-Value:get="@FileSizeMoreThanValue" @bind-Value:set="@OnFileSizeMoreThanChanged"
-                   class="flex-grow-1" data-search-target="min"/>
+                   class="flex-grow-1" data-search-target="min" Style="@Field.GetStyleString()"/>
     <span>～</span>
     <RadzenNumeric TValue="decimal?" @bind-Value:get="@FileSizeLessThanValue" @bind-Value:set="@OnFileSizeLessThanChanged"
-                   class="flex-grow-1" data-search-target="max"/>
+                   class="flex-grow-1" data-search-target="max" Style="@Field.GetStyleString()"/>
   </div>
 </div>
 

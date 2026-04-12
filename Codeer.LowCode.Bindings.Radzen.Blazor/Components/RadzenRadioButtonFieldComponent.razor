@@ -3,11 +3,11 @@
 @inherits RadzenFieldComponentBase<RadioButtonField, RadzenRadioButtonFieldDesign>
 
 @if (Field.ModuleLayoutType == ModuleLayoutType.List && Field.IsViewOnly) {
-  <span class="d-block py-2">
+  <span class="d-block py-2" style="@Field.GetStyleString()">
     @Field.Value
   </span>
 } else {
-  <RadzenRadioButtonList TValue="int?" @bind-Value:get="@IsChecked" @bind-Value:set="@OnChange" Name="@WebElementId">
+  <RadzenRadioButtonList TValue="int?" @bind-Value:get="@IsChecked" @bind-Value:set="@OnChange" Name="@WebElementId" Style="@Field.GetStyleString()">
     <Items>
       <RadzenRadioButtonListItem TValue="int?" Disabled="@(IsDisabled || IsViewMode)" Text="@Label" Value="1" />
     </Items>

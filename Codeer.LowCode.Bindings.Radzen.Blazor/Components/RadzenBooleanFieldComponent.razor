@@ -5,20 +5,20 @@
 @inherits RadzenFieldComponentBase<BooleanField, RadzenBooleanFieldDesign>
 
 @if (Field.ModuleLayoutType == ModuleLayoutType.List && Field.IsViewOnly) {
-  <span class="d-block py-2">
+  <span class="d-block py-2" style="@Field.GetStyleString()">
     @ViewOnlyValue
   </span>
 } else {
   if (Field.Design.UIType == BooleanUIType.CheckBox) {
-    <RadzenCheckBox TValue="bool" @bind-Value:get="@IsChecked" @bind-Value:set="@OnChange" Disabled="@(IsDisabled || IsViewMode)" Name="@WebElementId"/>
-    <RadzenLabel Text="@Label" Component="@WebElementId" class="rz-ms-2"/>
+    <RadzenCheckBox TValue="bool" @bind-Value:get="@IsChecked" @bind-Value:set="@OnChange" Disabled="@(IsDisabled || IsViewMode)" Name="@WebElementId" Style="@Field.GetStyleString()"/>
+    <RadzenLabel Text="@Label" Component="@WebElementId" class="rz-ms-2" Style="@Field.GetStyleString()"/>
   } else if (Field.Design.UIType == BooleanUIType.Switch) {
-    <RadzenSwitch TValue="bool" @bind-Value:get="@IsChecked" @bind-Value:set="@OnChange" Disabled="@(IsDisabled || IsViewMode)" Name="@WebElementId"/>
-    <RadzenLabel Text="@Label" Component="@WebElementId" class="rz-ms-2"/>
+    <RadzenSwitch TValue="bool" @bind-Value:get="@IsChecked" @bind-Value:set="@OnChange" Disabled="@(IsDisabled || IsViewMode)" Name="@WebElementId" Style="@Field.GetStyleString()"/>
+    <RadzenLabel Text="@Label" Component="@WebElementId" class="rz-ms-2" Style="@Field.GetStyleString()"/>
   } else if (Field.Design.UIType == BooleanUIType.ToggleButton) {
     <RadzenToggleButton @bind-Value:get="@IsChecked" @bind-Value:set="@OnChange" Text="@Label" Disabled="@(IsDisabled || IsViewMode)"
                         Variant="RadzenDesign.Variant.ToVariant()" ToggleButtonStyle="RadzenDesign.Color.ToButtonStyle()"
-                        Shade="Shade.Light" ToggleShade="Shade.Darker"/>
+                        Shade="Shade.Light" ToggleShade="Shade.Darker" Style="@Field.GetStyleString()"/>
   }
   <Validator IsValid="@Field.IsValid" ErrorMessage="@Field.ErrorText" />
 }

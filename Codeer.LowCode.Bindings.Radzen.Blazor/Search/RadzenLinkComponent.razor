@@ -5,15 +5,15 @@
 @using global::Radzen
 @inherits RadzenFieldComponentBase<LinkField, RadzenLinkFieldDesign>
 
-<div>
+<div style="@Field.GetStyleString()">
   <RadzenStack Orientation="Orientation.Horizontal" Gap="2">
-    <RadzenFormField Variant="Variant.Outlined" class="flex-grow-1">
+    <RadzenFormField Variant="Variant.Outlined" class="flex-grow-1" Style="@Field.GetStyleString()">
       <ChildContent>
         @if (IsSelectOnly) {
-        <RadzenTextBox Value="@DisplayText" Disabled="@IsDisabled" ReadOnly="true"/>
+        <RadzenTextBox Value="@DisplayText" Disabled="@IsDisabled" ReadOnly="true" Style="@Field.GetStyleString()"/>
         } else {
         <RadzenTextBox T="string?" @bind-Value:get="@DisplayText" @bind-Value:set="OnChange"
-                       Disabled="@IsDisabled" class="flex-grow-1"/>
+                       Disabled="@IsDisabled" class="flex-grow-1" Style="@Field.GetStyleString()"/>
         }
       </ChildContent>
       <End>

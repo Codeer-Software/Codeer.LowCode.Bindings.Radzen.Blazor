@@ -2,10 +2,10 @@
 @inherits RadzenFieldComponentBase<DateTimeField, RadzenDateTimeFieldDesign>
 
 @if (IsViewMode) {
-  <span class="d-block py-2">@GetViewOnlyValue()</span>
+  <span class="d-block py-2" style="@Field.GetStyleString()">@GetViewOnlyValue()</span>
 } else {
   <RadzenDatePicker TValue="DateTime?" @bind-Value:get="@GetValue()" @bind-Value:set="@RaiseOnValueChanged" Name="@WebElementId"
-                    Disabled="@IsDisabled" ReadOnly="IsViewMode" ShowTime="true" DateFormat="yyyy/MM/dd HH:mm" class="d-block" />
+                    Disabled="@IsDisabled" ReadOnly="IsViewMode" ShowTime="true" DateFormat="yyyy/MM/dd HH:mm" class="d-block" Style="@Field.GetStyleString()" />
   <Validator IsValid="@Field.IsValid" ErrorMessage="@Field.ErrorText" />
 }
 

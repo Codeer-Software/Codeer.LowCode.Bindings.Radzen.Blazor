@@ -10,11 +10,11 @@
 @inject IJSRuntime JSRuntime
 
 @if (Field.ModuleLayoutType == ModuleLayoutType.List && Field.IsViewOnly) {
-  <span class="d-block py-2">@(Field.FileName)</span>
+  <span class="d-block py-2" style="@Field.GetStyleString()">@(Field.FileName)</span>
 } else {
   if (IsViewMode == false) {
-    <div>
-      <RadzenButton Variant="RadzenDesign.Variant.ToVariant()" ButtonStyle="RadzenDesign.Color.ToButtonStyle()">
+    <div style="@Field.GetStyleString()">
+      <RadzenButton Variant="RadzenDesign.Variant.ToVariant()" ButtonStyle="RadzenDesign.Color.ToButtonStyle()" Style="@Field.GetStyleString()">
         <label for="@WebElementId">
           <RadzenIcon Icon="upload"/>
         </label>

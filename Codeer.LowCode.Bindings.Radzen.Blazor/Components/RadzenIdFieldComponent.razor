@@ -2,10 +2,10 @@
 @inherits RadzenFieldComponentBase<IdField, RadzenIdFieldDesign>
 
 @if (IsViewMode) {
-  <span class="d-block py-2">@ViewOnlyValue</span>
+  <span class="d-block py-2" style="@Field.GetStyleString()">@ViewOnlyValue</span>
 } else {
   <RadzenTextBox @bind-Value:get="@Value" @bind-Value:set="@RaiseOnValueChanged" Name="@WebElementId"
-                 Disabled="@IsDisabled" ReadOnly="IsViewMode" Placeholder="@Placeholder" class="d-block w-100" />
+                 Disabled="@IsDisabled" ReadOnly="IsViewMode" Placeholder="@Placeholder" class="d-block w-100" Style="@Field.GetStyleString()" />
   <Validator IsValid="@Field.IsValid" ErrorMessage="@Field.ErrorText" />
 }
 

@@ -5,3 +5,10 @@
 ::deep .rz-form-field-content > input {
   width: 100%;
 }
+
+::deep input,
+::deep .rz-textbox,
+::deep .rz-inputtext {
+    background: inherit;
+    color: inherit;
+}

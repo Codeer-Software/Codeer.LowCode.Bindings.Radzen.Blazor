@@ -3,11 +3,11 @@
 @inherits RadzenFieldComponentBase<SelectField, RadzenSelectFieldDesign>
 
 @if (IsViewMode) {
-  <span class="d-block py-2">@(ViewOnlyValue)</span>
+  <span class="d-block py-2" style="@Field.GetStyleString()">@(ViewOnlyValue)</span>
 } else {
-  <div>
+  <div style="@Field.GetStyleString()">
     <RadzenDropDown TValue="string" @bind-Value:get="SelectedValue" @bind-Value:set="@OnChange" InputId="@WebElementId" Disabled="@IsDisabled" Name="@WebElementId"
-                    Data="ItemsSource" TextProperty="@nameof(Data.Text)" ValueProperty="@nameof(Data.Value)" class="d-block" />
+                    Data="ItemsSource" TextProperty="@nameof(Data.Text)" ValueProperty="@nameof(Data.Value)" class="d-block" Style="@Field.GetStyleString()" />
     <Validator IsValid="@Field.IsValid" ErrorMessage="@Field.ErrorText" />
   </div>
 }

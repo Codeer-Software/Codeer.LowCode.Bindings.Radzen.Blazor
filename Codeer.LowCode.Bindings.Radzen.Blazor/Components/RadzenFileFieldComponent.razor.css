@@ -1,15 +1,14 @@
-input[style*="--background:"] {
-    background: var(--background);
-}
-
-input[style*="--foreground:"] {
-    color: var(--foreground);
+::deep input,
+::deep button,
+::deep label {
+    background: inherit;
+    color: inherit;
 }
 
 div {
   height: inherit;
 }
- 
+
 img {
   width: 100%;
   height: 100%;

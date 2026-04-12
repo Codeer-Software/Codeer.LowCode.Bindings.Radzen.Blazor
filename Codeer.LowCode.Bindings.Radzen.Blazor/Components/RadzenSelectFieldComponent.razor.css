@@ -1,13 +1,11 @@
-select[style*="--background:"],
-span[style*="--background:"] {
-    background: var(--background);
-}
-
-select[style*="--foreground:"],
-span[style*="--foreground:"] {
-    color: var(--foreground);
-}
-
 ::deep .rz-helper-hidden-accessible input {
   width: 100%;
+}
+
+::deep input,
+::deep .rz-dropdown,
+::deep .rz-dropdown-label,
+::deep .rz-inputtext {
+    background: inherit;
+    color: inherit;
 }

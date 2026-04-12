@@ -1,9 +1,7 @@
-input[style*="--background:"],
-span[style*="--background:"] {
-    background: var(--background);
-}
-
-input[style*="--foreground:"],
-span[style*="--foreground:"] {
-    color: var(--foreground);
+::deep input,
+::deep .rz-textbox,
+::deep .rz-inputtext,
+::deep .rz-spinner-input {
+    background: inherit;
+    color: inherit;
 }
