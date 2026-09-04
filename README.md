@@ -4,6 +4,12 @@
 
 [サンプル](https://lowcodedemo.azurewebsites.net/RadzenBlazor/RadzenBlazorHome)
 
+# ⚠️ Maintenance Status
+
+This project is no longer actively maintained.
+New development, bug fixes, and support are not currently planned.
+The related NuGet package has also been unlisted and is not recommended for new projects.
+
 ## インストール
 
 ### パッケージのインストール
